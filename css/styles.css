@@ -1,30 +1,7 @@
+/* SP画面 */
 body {
-  margin: 0;
   background-color: #e3eaf2;
-}
-
-aside {
-  height: 1025px;
-  width: 80px;
-  background-color: #FFFFFF;
-  text-align: center;
-}
-
-.contents {
-  height: 1025px;
-  width: 100vw;
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-top: 42px;
-}
-
-button{
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  padding: 0;
-  appearance: none;
+  margin: 0%;
 }
 
 h1 {
@@ -34,65 +11,158 @@ h1 {
 .container {
   display: flex;
 }
-
-.header-title {
-  font-size: 34px;
-  font-weight: normal;
-  margin-bottom: 40px;
+/* メニューを最下部に固定 */
+.aside {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  padding: 8px 16px;
 }
 
-.header-contents {
-  margin-bottom: 24px;
+.aside-button {
+  background-color: #540c82;
+  opacity: 10%;
+  border-radius: 40px;
+  text-align: center;
+  width: calc((100% - 48px) / 3);
+}
+
+button {
+  /* 初期値(背景色無効) */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border: 1px solid #6B0FA4;
+  
+}
+
+
+
+/* レコード部のcss */
+.data-header, .data {
+  display: flex;
+}
+div.data-header {
+  background-color: #FFFFFF;
+}
+div.data-body > :nth-child(odd) {
+  background-color: #F6F6F6;
+}
+div.data-body > :nth-child(even) {
+  background-color: #FFFFFF;
+}
+.datas {
+  font-size: 14px;
+}
+.id, .name, .email {
+  opacity: 60%;
+}
+
+
+
+
+
+/* .idを最後尾に */
+.tr-record {
+  display: flex;
+  align-items: center;
+}
+
+.id {
+  order: 1;
+}
+
+.name {
+  display: block;
+  /* margin-top: 50px; */
+  width: 160px;
+  height: 48px;
+  padding: 8px;
+}
+
+.email {
+  width: 320px;
+  height: 48px;
+  padding: 8px;
 }
 
 .search {
+  /* padding: 14px 12px; */
+  display: flex;
+}
+
+.header-second-contents {
   background-color: #FFFFFF;
   border-radius: 4px;
-  /* position: absolute; */
-  /* width: 934px; */
+  display: flex;
+  justify-content: space-between;
+  padding: 14px;
+  margin-bottom: 18px;
 }
 
 [type="search"] {
-  width: 934px;
-  height: 52px;
+  /* width: 934px;
+  height: 52px; */
   font-size: 14px;
   border: none;
 }
 
-.button{
-  color: #6B0FA4;
-  /* padding: 0 24px 0 16px; */
+td {
+  padding: 14px 8px;
+  font-size: 14px;
 }
 
-.order, .save {
-  border: 1px solid #6B0FA4;
+.home {
+  margin: 0 auto;
+}
+.content {
+  margin-left: auto;
+}
+
+.contents {
+  margin-top: 24px;
   margin-left: 16px;
+  margin-right: 16px;
+}
+
+.add-button {
+  padding: 0 24px 0 24px;
   border-radius: 4px;
+  background-color: #6B0FA4;
+  color: #FFFFFF;
+  height: 50px;
+  width: 120px;
+  display: flex;
+  align-items: center;
 }
 
-.button-label {
-  padding-right: 40px;
-  padding: 15px 24px 15px 42px;
+.header-top-contents {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
 }
 
-.material-symbols-outlined {
-  /* height: 50px; */
-  /* width: 19.99; */
-  padding: 0;
-  opacity: 60%;
-  /* margin: 16px 10.01px 16px 14px; */
+.header-second-contents {
+  display: flex;
+  justify-items: center;
 }
 
-.data-header {
-  display: flex; 
+.header-title {
+  font-size: 22px;
+  font-weight: normal;
 }
 
-.data {
-  margin-bottom: 142px;
+.menu {
+  order: 3;
 }
 
-.data td{
-  opacity: 60%;
+table tbody tr:nth-child(odd) {
+  background-color: #F6F6F6;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #FFFFFF;
 }
 
 table {
@@ -105,27 +175,148 @@ table {
   background-color: #FFFFFF;
 }
 
-td {
-  padding: 14px 8px;
+.button-label {
+  display: none;
 }
 
-table tbody tr:nth-child(odd) {
-  background-color: #F6F6F6;
-}
 
-table tbody tr:nth-child(even) {
-  background-color: #FFFFFF;
-}
+/* ------------------------------------------------------ */
 
-.sidebar-icon {
-  font-size: 10px;
-}
 
-.menu {
-  margin-top: 60px;
-  margin-bottom: 59.08px;
-}
+/* PC画面 */
+@media (min-width: 376px) {
+  body {
+    margin: 0;
+    background-color: #e3eaf2;
+  }
 
-.header-button {
-  margin-left: auto;
+  .aside {
+    height: 1025px;
+    width: 80px;
+    background-color: #FFFFFF;
+    text-align: center;
+    position: initial;
+    display: block;
+  }
+
+  .contents {
+    height: 1025px;
+    width: 100vw;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 42px;
+  }
+
+  button {
+    /* 初期値(背景色無効) */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  .container {
+    display: flex;
+  }
+
+  .header-title {
+    font-size: 34px;
+    font-weight: normal;
+    margin-bottom: 40px;
+  }
+
+  .header-contents {
+    margin-bottom: 24px;
+  }
+
+  .search {
+    background-color: #FFFFFF;
+    border-radius: 4px;
+  }
+
+  [type="search"] {
+    width: 934px;
+    height: 52px;
+    font-size: 14px;
+    border: none;
+  }
+
+  .button {
+    color: #6B0FA4;
+    display: flex;
+    align-items: center;
+    /* padding: 0 24px 0 16px; */
+  }
+
+  .order,
+  .save {
+    border: 1px solid #6B0FA4;
+    margin-left: 16px;
+    border-radius: 4px;
+  }
+
+  .button-label {
+    padding-right: 40px;
+    padding: 15px 24px 15px 42px;
+  }
+
+  .material-symbols-outlined {
+    /* height: 50px; */
+    /* width: 19.99; */
+    padding: 0;
+    opacity: 60%;
+    /* margin: 16px 10.01px 16px 14px; */
+  }
+
+  .data-header {
+    display: flex;
+  }
+
+  .datas {
+    margin-bottom: 142px;
+  }
+
+  .datas td {
+    opacity: 60%;
+  }
+
+  table {
+    width: 100%;
+    /* 表の中のセルが境界を共有するか分離するか */
+    border-collapse: collapse;
+  }
+
+  table {
+    background-color: #FFFFFF;
+  }
+
+  td {
+    padding: 14px 8px;
+  }
+
+  table tbody tr:nth-child(odd) {
+    background-color: #F6F6F6;
+  }
+
+  table tbody tr:nth-child(even) {
+    background-color: #FFFFFF;
+  }
+
+  .sidebar-word {
+    font-size: 10px;
+  }
+
+  .menu {
+    margin-top: 60px;
+    margin-bottom: 59.08px;
+  }
+
+  /* .header-button {
+    margin-left: auto;
+  } */
+
 }
