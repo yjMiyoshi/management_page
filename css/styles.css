@@ -1,13 +1,16 @@
+/* padding と border を幅と高さに含める */
+* {
+  box-sizing: border-box;
+}
+
 /* SP画面 */
 body {
   background-color: #e3eaf2;
   margin: 0%;
 }
-
 h1 {
   margin: 0;
 }
-
 .container {
   display: flex;
 }
@@ -18,7 +21,6 @@ h1 {
   display: flex;
   padding: 8px 16px;
 }
-
 .aside-button {
   background-color: #540c82;
   opacity: 10%;
@@ -26,20 +28,48 @@ h1 {
   text-align: center;
   width: calc((100% - 48px) / 3);
 }
-
+.header-button {
+  display: flex;
+}
 button {
+  /* default の border が不要なため消す */
+  border: none;
+}
+.add-button {
+  display: flex;
+  padding: 0 24px 0 24px;
+  height: 50px;
+  width: 120px;
+  color: #FFFFFF;
+  background-color: #6B0FA4;
+  border-radius: 4px;
+  align-items: center;
+}
+.search {
+  opacity: 60%;
+}
+input:not(:placeholder-shown) {
+  opacity: 87%;
+}
+.custom-button {
+  color: #6B0FA4;
   /* 初期値(背景色無効) */
   background-color: transparent;
-  border: none;
   cursor: pointer;
-  padding: 0;
-  border: 1px solid #6B0FA4;
-  
+  padding: 16px;
+  /* 背景だけを透過をさせる */
+  background-clip: padding-box;
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 
-
 /* レコード部のcss */
+.data-top-parts {
+  background-color: #FFFFFF;
+  width: 1000px;
+  height: 8px;
+  border-radius: 4px 4px 0px 0px;
+}
 .data-header, .data {
   display: flex;
 }
@@ -56,49 +86,53 @@ div.data-body > :nth-child(even) {
   font-size: 14px;
 }
 .id, .name, .email {
+  align-items: center;
   opacity: 60%;
+  height: 48px;
+  padding: 14px 8px;
+}
+.id {
+  width: 40px;
+  /* sp画面時.idを最後尾に */
+  order: 1;
+}
+.name {
+  width: 160px;
+}
+.email {
+  width: 800px;
 }
 
 
 
 
 
-/* .idを最後尾に */
-.tr-record {
+
+
+.search-box {
+  /* padding: 14px 12px; */
+  margin-left: 14px;
   display: flex;
   align-items: center;
 }
 
-.id {
-  order: 1;
-}
-
-.name {
-  display: block;
-  /* margin-top: 50px; */
-  width: 160px;
-  height: 48px;
-  padding: 8px;
-}
-
-.email {
-  width: 320px;
-  height: 48px;
-  padding: 8px;
-}
-
-.search {
-  /* padding: 14px 12px; */
+.header-top-contents {
+  width: 343px;
+  margin-bottom: 24px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header-second-contents {
   background-color: #FFFFFF;
+  width: 343px;
+  margin-bottom: 18px;
   border-radius: 4px;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.12);
   display: flex;
   justify-content: space-between;
-  padding: 14px;
-  margin-bottom: 18px;
 }
 
 [type="search"] {
@@ -106,11 +140,6 @@ div.data-body > :nth-child(even) {
   height: 52px; */
   font-size: 14px;
   border: none;
-}
-
-td {
-  padding: 14px 8px;
-  font-size: 14px;
 }
 
 .home {
@@ -125,24 +154,6 @@ td {
   margin-left: 16px;
   margin-right: 16px;
 }
-
-.add-button {
-  padding: 0 24px 0 24px;
-  border-radius: 4px;
-  background-color: #6B0FA4;
-  color: #FFFFFF;
-  height: 50px;
-  width: 120px;
-  display: flex;
-  align-items: center;
-}
-
-.header-top-contents {
-  display: flex;
-  align-items: center;
-  margin-bottom: 24px;
-}
-
 .header-second-contents {
   display: flex;
   justify-items: center;
@@ -229,11 +240,7 @@ table {
     margin-bottom: 40px;
   }
 
-  .header-contents {
-    margin-bottom: 24px;
-  }
-
-  .search {
+  .search-box {
     background-color: #FFFFFF;
     border-radius: 4px;
   }
@@ -280,10 +287,6 @@ table {
     margin-bottom: 142px;
   }
 
-  .datas td {
-    opacity: 60%;
-  }
-
   table {
     width: 100%;
     /* 表の中のセルが境界を共有するか分離するか */
@@ -292,10 +295,6 @@ table {
 
   table {
     background-color: #FFFFFF;
-  }
-
-  td {
-    padding: 14px 8px;
   }
 
   table tbody tr:nth-child(odd) {
