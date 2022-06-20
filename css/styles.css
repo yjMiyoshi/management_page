@@ -199,7 +199,7 @@ div.data-body> :nth-child(even) {
 .id {
   width: 100px;
   /* sp画面時.idを最後尾に */
-  order: 1;
+  /* order: 1; */
 }
 
 .name {
@@ -510,7 +510,7 @@ table {
   .id {
     width: 100px;
     /* sp画面時.idを最後尾に */
-    order: 1;
+    /* order: 1; */
   }
   
   .name {
