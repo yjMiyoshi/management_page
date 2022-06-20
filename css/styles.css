@@ -64,6 +64,7 @@ h1 {
 }
 /* content-modal 配下の input */
 .content-modal input {
+  color: rgba(0, 0, 0, 0.87);
   width: 100%;
   height: 52px;
   border-radius: 8px;
@@ -71,6 +72,9 @@ h1 {
   padding: 0;
   border: none;
   outline: none;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 19px;
 }
 input[type="color"] {
   background-color: red;
@@ -157,7 +161,7 @@ input:not(:placeholder-shown) {
 /* レコード部のcss */
 .data-top-parts {
   background-color: #FFFFFF;
-  width: 1000px;
+  width: 580px;
   height: 8px;
   border-radius: 4px 4px 0px 0px;
 }
@@ -246,8 +250,6 @@ div.data-body> :nth-child(even) {
 }
 
 [type="search"] {
-  /* width: 934px;
-  height: 52px; */
   font-size: 14px;
   border: none;
 }
