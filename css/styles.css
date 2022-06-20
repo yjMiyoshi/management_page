@@ -72,7 +72,9 @@ h1 {
   border: none;
   outline: none;
 }
-.content-modal input {
+input[type="color"] {
+  background-color: red;
+  
 }
 
 /* コンテンツアイコンクリック時、モーダルを表示させる */
@@ -228,6 +230,8 @@ div.data-body> :nth-child(even) {
 .register {
   margin: 0 0 0 auto;
   color: #6B0FA4;
+  background-color: transparent;
+  font-size: 18px;
 }
 
 .header-second-contents {
