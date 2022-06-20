@@ -98,7 +98,7 @@ input[type="color"] {
 /* メニューを最下部に固定 */
 .navigation {
   z-index: 10;
-  background-color: red;
+  background-color: #FFFFFF;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -108,18 +108,17 @@ input[type="color"] {
   display: flex;
   justify-content: space-between;
   padding: 8px 16px;
+  text-align: center;
 }
 
 .navigation-button {
   background-color: #540c82;
   border-radius: 40px;
-  text-align: center;
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  justify-content: space-between;
   padding: 4px;
+}
+.navigation-button i.material-icons {
+  color: #6B0FA4;
 }
 
 .navigation-button+.navigation-button {
@@ -282,15 +281,15 @@ div.data-body> :nth-child(even) {
 }
 
 .menu {
-  background-color: blue;
+  background-color: transparent;
 }
 
 .home {
-  background-color: pink;
+  background-color: transparent;
 }
 
 .content {
-  background-color: orange;
+  background-color: rgba(84, 12, 130, 0.10);
 }
 
 table tbody tr:nth-child(odd) {
@@ -321,10 +320,6 @@ table {
 
 /* PC画面 */
 @media (min-width: 376px) {
-  * {
-    box-sizing: border-box;
-  }
-
   html {
     height: 100%;
   }
@@ -419,33 +414,33 @@ table {
     z-index: 10;
     background-color: purple;
     position: static;
-    left: 0;
-    bottom: 0;
+    left: auto;
+    bottom: auto;
     height: 100%;
     overflow: hidden;
     width: 80px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 8px 16px;
-
-
+    padding: 0;
+    align-items: center;
   }
 
   .navigation-button {
     background-color: #540c82;
-    border-radius: 40px;
-    text-align: center;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    justify-content: space-between;
+    border-radius: 0;
+    flex-grow: 0;
     padding: 4px;
+  }
+  .navigation-button i.material-icons {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  label.content {
+    display: inline-block;
   }
 
   .navigation-button+.navigation-button {
-    margin-left: 24px;
+    margin-left: 0;
   }
 
   .header-button {
@@ -611,6 +606,7 @@ table {
 
   .content {
     background-color: orange;
+    order: 1;
   }
 
   table tbody tr:nth-child(odd) {
