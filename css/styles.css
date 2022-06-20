@@ -136,15 +136,23 @@ button {
 }
 
 .add-button {
-  display: flex;
-  padding: 0 24px 0 24px;
+  padding-left: 16px;
+  padding-right: 24px;
   height: 50px;
   width: 120px;
   color: #FFFFFF;
   background-color: #6B0FA4;
   border-radius: 4px;
+  display: flex;
   align-items: center;
 }
+.add-word {
+  width: 54px;
+  height: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
 
 .search {
   opacity: 60%;
@@ -450,15 +458,6 @@ table {
   }
 
   .add-button {
-    display: flex;
-    padding: 0 24px 0 24px;
-    height: 50px;
-    width: 120px;
-    color: #FFFFFF;
-    background-color: #6B0FA4;
-    border-radius: 4px;
-    align-items: center;
-
     display: none;
   }
 
