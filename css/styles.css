@@ -34,9 +34,45 @@ h1 {
 
 /* コンテンツアイコンクリック時に表示させるモーダル */
 .content-modal {
+  z-index: 20;
   top: 100%;
+  width: 100%;
+  height: 100%;
+  padding: 24px 16px 0 16px;
+  background-color: #FFFFFF;
   position: absolute;
-  transition: all 1s ease-out;
+  transition: all 0.5s ease-out;
+  overflow-y: scroll;
+  /* 上部(98px) + 下部(48px) の合計値 */
+  padding-bottom: 146px;
+  border-radius: 16px 16px 0px 0px;
+}
+.content-modal-header {
+  display: flex;
+  margin-bottom: 30px;
+}
+.content-title {
+  font-size: 14px;
+  opacity: 87%;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+.content-note {
+  font-size: 12px;
+  opacity: 60%;
+  margin-top: 4px;
+}
+/* content-modal 配下の input */
+.content-modal input {
+  width: 100%;
+  height: 52px;
+  border-radius: 8px;
+  background-color: #F6F6F6;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+.content-modal input {
 }
 
 /* コンテンツアイコンクリック時、モーダルを表示させる */
@@ -45,7 +81,7 @@ h1 {
 }
 
 /* メニューを最下部に固定 */
-.aside {
+.navigation {
   z-index: 10;
   background-color: red;
   position: absolute;
@@ -59,7 +95,7 @@ h1 {
   padding: 8px 16px;
 }
 
-.aside-button {
+.navigation-button {
   background-color: #540c82;
   border-radius: 40px;
   text-align: center;
@@ -71,7 +107,7 @@ h1 {
   padding: 4px;
 }
 
-.aside-button+.aside-button {
+.navigation-button + .navigation-button {
   margin-left: 24px;
 }
 
@@ -155,7 +191,7 @@ div.data-body> :nth-child(even) {
 }
 
 .id {
-  width: 40px;
+  width: 100px;
   /* sp画面時.idを最後尾に */
   order: 1;
 }
@@ -165,7 +201,7 @@ div.data-body> :nth-child(even) {
 }
 
 .email {
-  width: 800px;
+  width: 320px;
 }
 
 
@@ -185,6 +221,13 @@ div.data-body> :nth-child(even) {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.add-content {
+  margin-left: 16px;
+}
+.register {
+  margin: 0 0 0 auto;
+  color: #6B0FA4;
 }
 
 .header-second-contents {
@@ -266,7 +309,7 @@ table {
     background-color: #e3eaf2;
   }
 
-  .aside {
+  .navigation {
     height: 1025px;
     width: 80px;
     background-color: #FFFFFF;
@@ -336,13 +379,12 @@ table {
     padding: 15px 24px 15px 42px;
   }
 
-  .material-symbols-outlined {
-    /* height: 50px; */
-    /* width: 19.99; */
+  .material-icons {
     padding: 0;
-    opacity: 60%;
-    /* margin: 16px 10.01px 16px 14px; */
+    margin: 0;
+    opacity: 10%;
   }
+
 
   .data-header {
     display: flex;
