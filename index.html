@@ -16,7 +16,6 @@
       <form action="#" method="post">
         <div class="content-modal-header">
           <label for="open"><i class="material-icons">close</i></label>
-  
           <div class="add-content">コンテンツ追加</div>
           <button type="submit" class="register">登録</button>
         </div>
@@ -64,108 +63,102 @@
         <!-- <div class="sidebar-word">ホーム</div> -->
       </div>
     </nav>
-    <div class="container">
-      <div class="contents">
-        <div class="header-top-contents">
-          <h1 class="header-title">コンテンツ一覧</h1>
-          <button class="add-button">
-            <i class="material-icons">add</i>
-            <span class="add-word">追加</span>
+    <div class="contents">
+      <div class="header-top-contents">
+        <h1 class="header-title">コンテンツ一覧</h1>
+        <button class="add-button">
+          <i class="material-icons">add</i>
+          <span class="add-word">追加</span>
+        </button>
+      </div>
+      <div class="header-second-contents">
+        <div class="search-box">
+          <i class="material-icons">search</i>
+          <input type="search" placeholder="絞り込み検索">
+        </div>
+        <div class="header-button">
+          <button class="custom-button">
+            <i class="material-icons header-button-icon">sync_alt</i>
+            <span class="button-label">列を並び替え</span>
+          </button>
+          <button class="custom-button">
+            <i class="material-icons header-button-icon">file_download</i>
+            <span class="button-label">表データを保存</span>
           </button>
         </div>
-        <div class="header-second-contents">
-          <div class="search-box">
-            <i class="material-icons">search</i>
-            <input type="search" placeholder="絞り込み検索">
-          </div>
-          <div class="header-button">
-            <div class="order">
-              <button class="custom-button">
-                <i class="material-icons">sync_alt</i>
-                <span class="button-label">列を並び替え</span>
-              </button>
-            </div>
-            <div class="save">
-              <button class="custom-button">
-                <i class="material-icons">file_download</i>
-                <span class="button-label">表データを保存</span>
-              </button>
-            </div>
-          </div>
+      </div>
+      <div class="datas">
+        <div class="data-top-parts"></div>
+        <div class="data-header">
+          <div class="name">氏名</div>
+          <div class="email">メールアドレス</div>
+          <div class="id">ID</div>
         </div>
-        <div class="datas">
-          <div class="data-top-parts"></div>
-          <div class="data-header">
-            <div class="name">氏名</div>
-            <div class="email">メールアドレス</div>
-            <div class="id">ID</div>
+        <div class="data-body">
+          <div class="data">
+            <div class="name">田中花子</div>
+            <div class="email">sample_sample@sample.com</div>
+            <div class="id">1</div>
           </div>
-          <div class="data-body">
-            <div class="data">
-              <div class="name">田中花子</div>
-              <div class="email">sample_sample@sample.com</div>
-              <div class="id">1</div>
-            </div>
-            <div class="data">
-              <div class="name">竹内順子</div>
-              <div class="email">sample_sample@sample.com</div>
-              <div class="id">2</div>
-            </div>
-            <div class="data">
-              <div class="name">奥村和希</div>
-              <div class="email">sample_sample@sample.com</div>
-              <div class="id">3</div>
-            </div>
-            <div class="data">
-              <div class="name">安達翔真</div>
-              <div class="email">sample_sample@sample.com</div>
-              <div class="id">4</div>
-            </div>
-            <div class="data">
-              <div class="name">吉田凛</div>
-              <div class="email">sample_sample@sample.com</div>
-              <div class="id">5</div>
-            </div>
-            <div class="data">
-              <div class="name">大谷由奈</div>
-              <div class="email">sample_sample@sample.com</div>
-              <div class="id">6</div>
-            </div>
-            <div class="data">
-              <div class="name">安達翔真</div>
-              <div class="email">sample_sample@sample.com</div>
-              <div class="id">7</div>
-            </div>
-            <div class="data">
-              <div class="name">菅原勇人</div>
-              <div class="email">sample_sample@sample.com</div>
-              <div class="id">8</div>
-            </div>
-            <div class="data">
-              <div class="name">森下弘</div>
-              <div class="email">sample_sample@sample.com</div>
-              <div class="id">9</div>
-            </div>
-            <div class="data">
-              <div class="name">千葉愛佳</div>
-              <div class="email">sample_sample@sample.com</div>
-              <div class="id">10</div>
-            </div>
-            <div class="data">
-              <div class="name">大塚太陽</div>
-              <div class="email">sample_sample@sample.com</div>
-              <div class="id">11</div>
-            </div>
-            <div class="data">
-              <div class="name">佐藤美咲</div>
-              <div class="email">sample_sample@sample.com</div>
-              <div class="id">12</div>
-            </div>
-            <div class="data">
-              <div class="name">大沢陸翔</div>
-              <div class="email">sample_sample@sample.com</div>
-              <div class="id">13</div>
-            </div>
+          <div class="data">
+            <div class="name">竹内順子</div>
+            <div class="email">sample_sample@sample.com</div>
+            <div class="id">2</div>
+          </div>
+          <div class="data">
+            <div class="name">奥村和希</div>
+            <div class="email">sample_sample@sample.com</div>
+            <div class="id">3</div>
+          </div>
+          <div class="data">
+            <div class="name">安達翔真</div>
+            <div class="email">sample_sample@sample.com</div>
+            <div class="id">4</div>
+          </div>
+          <div class="data">
+            <div class="name">吉田凛</div>
+            <div class="email">sample_sample@sample.com</div>
+            <div class="id">5</div>
+          </div>
+          <div class="data">
+            <div class="name">大谷由奈</div>
+            <div class="email">sample_sample@sample.com</div>
+            <div class="id">6</div>
+          </div>
+          <div class="data">
+            <div class="name">安達翔真</div>
+            <div class="email">sample_sample@sample.com</div>
+            <div class="id">7</div>
+          </div>
+          <div class="data">
+            <div class="name">菅原勇人</div>
+            <div class="email">sample_sample@sample.com</div>
+            <div class="id">8</div>
+          </div>
+          <div class="data">
+            <div class="name">森下弘</div>
+            <div class="email">sample_sample@sample.com</div>
+            <div class="id">9</div>
+          </div>
+          <div class="data">
+            <div class="name">千葉愛佳</div>
+            <div class="email">sample_sample@sample.com</div>
+            <div class="id">10</div>
+          </div>
+          <div class="data">
+            <div class="name">大塚太陽</div>
+            <div class="email">sample_sample@sample.com</div>
+            <div class="id">11</div>
+          </div>
+          <div class="data">
+            <div class="name">佐藤美咲</div>
+            <div class="email">sample_sample@sample.com</div>
+            <div class="id">12</div>
+          </div>
+          <div class="data">
+            <div class="name">大沢陸翔</div>
+            <div class="email">sample_sample@sample.com</div>
+            <div class="id">13</div>
           </div>
         </div>
       </div>
