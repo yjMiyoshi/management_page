@@ -14,39 +14,41 @@
     <input type="checkbox" id="open" hidden>
     <div class="content-modal">
       <form action="#" method="post">
-        <div class="content-modal-header">
-          <label for="open"><i class="material-icons">close</i></label>
-          <div class="add-content">コンテンツ追加</div>
-          <button type="submit" class="register">登録</button>
-        </div>
-        <div class="content-name">
-          <div class="content-title">氏名</div>
-          <input type="text">
-          <div class="content-note">10文字以内で入力してください</div>
-        </div>
-        <div class="content-email">
-          <div class="content-title">メールアドレス</div>
-          <input type="email">
-          <div class="content-note">半角で入力してください</div>
-        </div>
-        <div class="content-tel">
-          <div class="content-title">電話番号</div>
-          <input type="tel">
-          <div class="content-note">ハイフンなしで入力してください</div>
-        </div>
-        <div class="content-birth">
-          <div class="content-title">誕生日</div>
-          <input type="date">
-        </div>
-        <div class="content-color">
-          <div class="content-title">イメージカラー</div>
-          <input type="color" value="#9360FF">
-        </div>
-        <div class="content-login">
-          <div class="content-title">ログイン状態</div>
-          <div class="check-login">
-            <input type="checkbox" id="login" name="login">
-            <label for="login">ログイン状態を維持する</label>
+        <div class="content-modal-wrap">
+          <div class="content-modal-header">
+            <label for="open"><i class="material-icons">close</i></label>
+            <div class="add-content">コンテンツ追加</div>
+            <button type="submit" class="register">登録</button>
+          </div>
+          <div class="content-name">
+            <div class="content-title">氏名</div>
+            <input type="text" maxlength="10">
+            <div class="content-note">10文字以内で入力してください</div>
+          </div>
+          <div class="content-email">
+            <div class="content-title">メールアドレス</div>
+            <input type="email" pattern="^[a-zA-Z0-9]+$">
+            <div class="content-note">半角で入力してください</div>
+          </div>
+          <div class="content-tel">
+            <div class="content-title">電話番号</div>
+            <input type="tel" pattern="[\d]+">
+            <div class="content-note">ハイフンなしで入力してください</div>
+          </div>
+          <div class="content-birth">
+            <div class="content-title">誕生日</div>
+            <input type="date">
+          </div>
+          <div class="content-color">
+            <div class="content-title">イメージカラー</div>
+            <input id="image-color" type="color" value="#9360FF">
+          </div>
+          <div class="content-login">
+            <div class="content-title">ログイン状態</div>
+            <div class="check-login">
+              <input type="checkbox" id="login" name="login">
+              <label for="login">ログイン状態を維持する</label>
+            </div>
           </div>
         </div>
         <div class="modal-footer">

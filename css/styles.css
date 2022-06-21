@@ -27,7 +27,6 @@ h1 {
   margin: 0;
 }
 
-
 .contents {
   padding-bottom: 66px;
   width: 100%;
@@ -42,13 +41,16 @@ h1 {
   top: 100%;
   width: 100%;
   height: 100%;
-  /* 上部(98px) + 下部(48px) の合計値 */
-  padding: 24px 16px 146px 16px;
   background-color: #FFFFFF;
   border-radius: 16px 16px 0 0;
   position: absolute;
   transition: all 0.5s ease-out;
   overflow-y: scroll;
+}
+
+.content-modal-wrap {
+  /* 上部(98px) + 下部(48px) の合計値 */
+  padding: 24px 16px 146px 16px;
 }
 
 /* コンテンツアイコンクリック時、モーダルを表示させる */
@@ -93,9 +95,32 @@ h1 {
   padding-left: 19px;
 }
 
+input[type="date"] {
+  padding-right: 19px;
+}
+
 input[type="color"] {
   background-color: red;
+  padding: 0px;
+}
 
+#image-color {
+  -webkit-appearance: none;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+}
+
+#image-color::-webkit-color-swatch {
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+}
+
+#image-color::-webkit-color-swatch-wrapper {
+  border: none;
+  border-radius: 8px;
+  padding: 0;
 }
 
 /* メニューを最下部に固定 */
@@ -183,7 +208,6 @@ input:not(:placeholder-shown) {
   border-left: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-
 /* レコード部のcss */
 .data-top-parts {
   background-color: #FFFFFF;
@@ -261,6 +285,7 @@ div.data-body> :nth-child(even) {
   background-color: transparent;
   font-size: 18px;
 }
+
 .modal-footer {
   display: none;
 }
@@ -307,11 +332,8 @@ div.data-body> :nth-child(even) {
   display: none;
 }
 
+/* PC画面 ----------------------------------------------- */
 
-/* ------------------------------------------------------ */
-
-
-/* PC画面 */
 @media (min-width: 376px) {
 
   .main {
@@ -327,18 +349,22 @@ div.data-body> :nth-child(even) {
   .content-login {
     display: block;
   }
+
   .check-login {
     margin-top: 22px;
     display: flex;
     align-items: center;
   }
-  .check-login > input {
+
+  .check-login>input {
     height: 48px;
     width: 48px;
   }
-  .check-login > label {
+
+  .check-login>label {
     font-size: 14px;
   }
+
   #login {
     height: 16px;
   }
@@ -347,10 +373,12 @@ div.data-body> :nth-child(even) {
     width: 320px;
     top: 0;
     left: -100%;
-    padding-bottom: 0;
+    /* padding-bottom: 0; */
     border-radius: 0;
     transition: all 0.7s ease-out;
-    overflow-y: hidden;
+    overflow-y: scroll;
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+    z-index: 5;
   }
 
   /* コンテンツアイコンクリック時、モーダルを表示させる */
@@ -358,8 +386,9 @@ div.data-body> :nth-child(even) {
     top: 0;
     left: 80px;
   }
-  .content-modal-header > label,
-  .content-modal-header > button {
+
+  .content-modal-header>label,
+  .content-modal-header>button {
     display: none;
   }
 
@@ -380,6 +409,7 @@ div.data-body> :nth-child(even) {
 
   .navigation-button {
     padding: 0;
+    padding-bottom: 14px;
     border-radius: 0;
     flex-grow: 0;
     margin-bottom: 14px;
@@ -430,6 +460,7 @@ div.data-body> :nth-child(even) {
     align-items: center;
     justify-content: center;
   }
+
   .register-button {
     height: 50px;
     width: 136px;
@@ -440,13 +471,14 @@ div.data-body> :nth-child(even) {
     align-items: center;
     justify-content: center;
   }
+
   .modal-footer {
     padding: 16px;
     border-top: 1px solid rgba(0, 0, 0, 0.12);
     display: flex;
     bottom: 16px;
+    margin-top: auto;
   }
-
 
   /* レコード部のcss */
   .datas {
@@ -509,11 +541,17 @@ div.data-body> :nth-child(even) {
   .content {
     background-color: transparent;
     order: 1;
+    color: #6B0FA4;
   }
+
   .content i {
     background-color: rgba(84, 12, 130, 0.10);
     border-radius: 40px;
     width: 100%;
+  }
+
+  .content i.material-icons {
+    color: #6B0FA4;
   }
 
   .button-label {
