@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <title>管理画面</title>
 </head>
@@ -17,7 +18,9 @@
       <form action="#" method="post">
         <div class="content-modal-wrap">
           <div class="content-modal-header">
-            <label for="open"><i class="material-icons">close</i></label>
+            <label for="open">
+              <span class="material-icons-outlined">close</span>
+            </label>
             <div class="add-content">コンテンツ追加</div>
             <button type="submit" class="register">登録</button>
           </div>
@@ -63,44 +66,49 @@
       </form>
     </div>
     <nav class="navigation">
-      <div class="navigation-button menu">
+      <div class="navigation-button home">
         <div>
-          <i class="material-icons">menu</i>
+          <span class="material-icons-outlined">home</span>
+        </div>
+        <div class="sidebar-word">ホーム</div>
+      </div>
+      <div class="navigation-button house">
+        <div>
+          <span class="material-icons-outlined">house</span>
         </div>
       </div>
       <label class="navigation-button content" for="open">
         <div>
-          <i class="material-icons">recent_actors</i>
+          <span class="material-icons-outlined">recent_actors</span>
         </div>
         <div class="sidebar-word">コンテンツ</div>
       </label>
-      <div class="navigation-button home">
+      <div class="navigation-button menu">
         <div>
-          <i class="material-icons">home</i>
+          <span class="material-icons-outlined">menu</span>
         </div>
-        <div class="sidebar-word">ホーム</div>
       </div>
     </nav>
     <div class="contents">
       <div class="header-top-contents">
         <h1 class="header-title">コンテンツ一覧</h1>
         <button class="add-button">
-          <i class="material-icons">add</i>
+          <span class="material-icons-outlined">add</span>
           <span class="add-word">追加</span>
         </button>
       </div>
       <div class="header-second-contents">
         <div class="search-box">
-          <i class="material-icons">search</i>
+          <span class="material-icons-outlined">search</span>
           <input type="search" placeholder="絞り込み検索">
         </div>
         <div class="header-button">
           <button class="custom-button">
-            <i class="material-icons header-button-icon">sync_alt</i>
+            <span class="material-icons-outlined header-button-icon">sync_alt</span>
             <span class="button-label">列を並び替え</span>
           </button>
           <button class="custom-button">
-            <i class="material-icons header-button-icon">file_download</i>
+            <span class="material-icons-outlined header-button-icon">file_download</span>
             <span class="button-label">表データを保存</span>
           </button>
         </div>
