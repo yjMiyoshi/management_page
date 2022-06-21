@@ -46,6 +46,7 @@ h1 {
   position: absolute;
   transition: all 0.5s ease-out;
   overflow-y: scroll;
+  box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.30);
 }
 
 .content-modal-wrap {
@@ -102,6 +103,9 @@ input[type="date"] {
 input[type="color"] {
   background-color: red;
   padding: 0px;
+}
+input:focus{
+  border: 2px solid #34B0C0;
 }
 
 #image-color {
