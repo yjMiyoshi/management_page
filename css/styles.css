@@ -30,17 +30,13 @@ h1 {
 .main {
   max-height: 100%;
   height: 100%;
-  /* overflow-y: scroll; */
 }
 
 .contents {
-  padding-bottom: 66px;
+  height: 100%;
   width: 100%;
-  padding-top: 24px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 24px 16px 66px 16px;
   overflow-y: scroll;
-  /* overflow-x: scroll; */
 }
 
 /* コンテンツアイコンクリック時に表示させるモーダル */
@@ -48,20 +44,25 @@ h1 {
   z-index: 20;
   top: 100%;
   width: 100%;
-  height: 100%;
+  /* header を考慮 */
+  height: calc(100% - 98px);
   background-color: #FFFFFF;
   border-radius: 16px 16px 0 0;
   position: absolute;
   transition: all 0.5s ease-in-out;
   box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.30);
+  overflow-x: hidden;
+}
+
+form {
+  height: 100%;
 }
 
 .content-modal-wrap {
-  /* 上部(98px) + 下部(48px) の合計値 */
-  /* padding: 24px 16px 146px 16px; */
-  padding: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  transition: all 0.5s ease-in-out;
 }
 
 .content-modal-top {
@@ -71,20 +72,18 @@ h1 {
 }
 
 .content-modal-middle {
-  flex-grow: 1;
-  padding: 24px 16px;
-  overflow-y: scroll;
+  padding: 6px 16px 24px 16px;
   height: 100%;
-}
-
-.content-modal-middle-forms {
+  flex-grow: 1;
+  overflow-y: scroll;
 }
 
 .content-modal-bottom {
-  /* height: 82px; */
   width: 100%;
   padding: 16px 16px;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
+  display: none;
+  justify-content: space-between;
 }
 
 /* コンテンツアイコンクリック時、モーダルを表示させる */
@@ -101,8 +100,11 @@ h1 {
   font-size: 14px;
   /* 文字色: #000000 87% を rbga で表記 */
   color: rgba(0, 0, 0, 0.87);
-  margin-top: 24px;
   margin-bottom: 8px;
+}
+
+.input-content+.input-content {
+  margin-top: 24px;
 }
 
 .content-note {
@@ -117,6 +119,7 @@ h1 {
 }
 
 input {
+  padding: 0;
   color: rgba(0, 0, 0, 0.87);
   border-radius: 8px;
   border: none;
@@ -189,14 +192,11 @@ input:not(:placeholder-shown) {
   flex-grow: 1;
 }
 
-.material-icons-round {
-  margin: 0;
-  padding: 0;
-}
-
 .search {
   /* 虫眼鏡アイコンを opacity で調整 子要素無し */
   opacity: 0.6;
+  font-size: 24px;
+  margin-right: 8px;
 }
 
 .navigation-button+.navigation-button {
@@ -213,12 +213,11 @@ button {
 }
 
 .add-button {
-  padding: 0 24px 0 16px;
-  /* padding-left: 16px;
-  padding-right: 24px; */
   height: 50px;
-  /* .add-buttonにwidthを指定している（汎用的なコードになっていない。この文字数しか対応できない） */
-  /* width: 120px; */
+  position: relative;
+  min-width: 120px;
+  padding: 15px 24px 15px 42px;
+  height: 50px;
   color: #FFFFFF;
   background-color: #6B0FA4;
   border-radius: 4px;
@@ -228,19 +227,22 @@ button {
 }
 
 .add {
-  font-size: 15px;
+  position: absolute;
+  left: 16px;
+  font-size: 18px;
 }
 
 .add-word {
-  /* .add-wordにwidthを指定している（汎用的なコードになっていない。この文字数しか対応できない） */
-  /* width: 54px; */
-  line-height: 20px;
+  width: 100%;
+  height: 100%;
   font-size: 14px;
-  text-align: center;
+  line-height: 20px;
   font-weight: 400;
 }
 
-
+.header-button-icon {
+  font-size: 24px;
+}
 
 .custom-button {
   color: #6B0FA4;
@@ -308,7 +310,7 @@ button {
   color: rgba(0, 0, 0, 0.60);
   align-items: center;
   font-weight: 400;
-  /* line-height 14px に対し、20.27 は 1.45倍 */
+  /* font-size 14px に対し、line-height 20.27px は 1.45倍 */
   line-height: 1.45;
   /* 要素より長い文字列を省略する */
   white-space: nowrap;
@@ -356,11 +358,6 @@ button {
   font-size: 18px;
 }
 
-.modal-footer {
-  display: none;
-  justify-content: space-between;
-}
-
 .header-second-contents {
   background-color: #FFFFFF;
   width: 100%;
@@ -379,8 +376,8 @@ button {
 
 .header-title {
   font-size: 22px;
-  /* どうやって line-height 指定すべきか。一旦固定値で指定。 */
-  line-height: 31.86px;
+  /* font-size 22px に対し、line-height 31.86px は 1.45倍 */
+  line-height: 1.45;
 }
 
 .menu {
@@ -394,6 +391,11 @@ button {
 
 .sp-home {
   color: #6B0FA4;
+}
+
+.nav-icon {
+  font-size: 32px;
+  line-height: 32px;
 }
 
 .home-word,
@@ -419,8 +421,6 @@ button {
 
 .check-login>input {
   width: 48px;
-  /* デフォルトの checkbox 非表示 */
-  /* display: none; */
 }
 
 .check-login>label {
@@ -438,7 +438,6 @@ button {
 
   .main {
     display: flex;
-    align-items: stretch;
   }
 
   .contents {
@@ -446,41 +445,27 @@ button {
   }
 
   .content-modal {
-    height: 100%;
-    position: static;
-    /* width: 320px; */
-    width: 0px;
-    border-radius: 0;
-    transition: all 0.7s ease-in-out;
-    /* overflow-y: scroll; */
-    overflow-x: hidden;
-    border-left: 1px solid rgba(0, 0, 0, 0.12);
     z-index: 5;
-
-    /* min-width: 320px; */
-    min-width: 0px;
-    /* max-width: 320px; */
-    /* max-width: 0px; */
-  }
-
-  form {
+    width: 0px;
     height: 100%;
+    min-width: 0px;
+    position: static;
+    border-radius: 0;
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
   }
 
   /* コンテンツアイコンクリック時、モーダルを表示させる */
   #open:checked+.content-modal {
     width: 320px;
     min-width: 320px;
-    /* max-width: 320px; */
   }
 
   .content-modal-wrap {
-    height: 100%;
     left: -320px;
     width: 320px;
     min-width: 320px;
     max-width: 320px;
-    transition: all 0.7s ease-in-out;
+    height: 100%;
   }
 
   #open:checked+.content-modal-wrap {
@@ -501,7 +486,6 @@ button {
     bottom: auto;
     padding: 0 12px;
     background-color: #FFFFFF;
-    /* overflow: hidden; */
     position: static;
     flex-direction: column;
     justify-content: flex-start;
@@ -514,10 +498,6 @@ button {
     flex-grow: 0;
     margin-bottom: 14px;
     line-height: 1;
-  }
-
-  .navigation-button span.material-icons-round {
-    /* color: rgba(0, 0, 0, 0.6); */
   }
 
   label.content {
@@ -568,9 +548,8 @@ button {
     justify-content: center;
   }
 
-  .modal-footer {
+  .content-modal-bottom {
     display: flex;
-    
   }
 
   /* レコード部のcss */
@@ -586,10 +565,6 @@ button {
 
   .name {
     width: 240px;
-  }
-
-  .email {
-    width: 860px;
   }
 
   .search-box {
