@@ -1,9 +1,10 @@
-/* padding と border を幅と高さに含める */
+/* common */
+
 * {
+  /* padding と border を幅と高さに含める */
   box-sizing: border-box;
 }
 
-/* SP画面 */
 html {
   max-height: 100%;
   height: 100%;
@@ -11,11 +12,17 @@ html {
 
 body {
   font-family: 'Noto Sans JP', sans-serif;
+  /* 背景色: #C8D5E4 50% を rbga で表記 */
   background-color: rgba(200, 213, 228, 0.5);
   margin: 0%;
   max-height: 100%;
   height: 100%;
   overflow: hidden;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
 }
 
 .main {
@@ -24,16 +31,13 @@ body {
   overflow-y: scroll;
 }
 
-h1 {
-  margin: 0;
-}
-
 .contents {
   padding-bottom: 66px;
   width: 100%;
   padding-top: 24px;
   padding-left: 16px;
   padding-right: 16px;
+  /* overflow-x: scroll; */
 }
 
 /* コンテンツアイコンクリック時に表示させるモーダル */
@@ -45,7 +49,7 @@ h1 {
   background-color: #FFFFFF;
   border-radius: 16px 16px 0 0;
   position: absolute;
-  transition: all 0.5s ease-out;
+  transition: all 0.5s ease-in-out;
   overflow-y: scroll;
   box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.30);
 }
@@ -67,43 +71,52 @@ h1 {
 
 .content-title {
   font-size: 14px;
-  opacity: 87%;
+  /* 文字色: #000000 87% を rbga で表記 */
+  color: rgba(0, 0, 0, 0.87);
   margin-top: 24px;
   margin-bottom: 8px;
 }
 
 .content-note {
   font-size: 12px;
-  opacity: 60%;
+  /* 文字色: #000000 87% を rbga で表記 */
+  color: rgba(0, 0, 0, 0.60);
   margin-top: 4px;
+}
+
+input {
+  color: rgba(0, 0, 0, 0.87);
+  border-radius: 8px;
+  border: none;
+  outline: none;
 }
 
 /* content-modal 配下の input */
 .content-modal input {
-  color: rgba(0, 0, 0, 0.87);
+  padding: 16px 19px;
+  background-color: #F6F6F6;
   width: 100%;
   height: 52px;
-  border-radius: 8px;
-  background-color: #F6F6F6;
-  padding: 0;
-  border: none;
-  outline: none;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  padding-left: 19px;
 }
 
-input[type="date"] {
-  padding-right: 19px;
-}
-
-input[type="color"] {
-  background-color: red;
-  padding: 0px;
-}
-
-input:focus {
+input:not([type="search"]):focus {
+  /* 入力・選択中は border を表示 */
   border: 2px solid #34B0C0;
+}
+
+/* placeholder の color 指定 */
+input:not(:placeholder-shown) {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+/*  */
+input[type="search"]::-webkit-search-decoration {
+  /* display: none; */
+}
+
+.search-box:focus-within {
+  border: 2px solid #34B0C0;
+  border-radius: 4px;
 }
 
 #image-color {
@@ -143,8 +156,6 @@ input:focus {
 
 .navigation-button {
   padding: 4px;
-  background-color: #540c82;
-  opacity: 10%;
   border-radius: 40px;
   flex-grow: 1;
   cursor: pointer;
@@ -157,6 +168,11 @@ input:focus {
 
 .navigation-button span.material-icons-round {
   color: #6B0FA4;
+}
+
+.search {
+  /* 虫眼鏡アイコンを opacity で調整 子要素無し */
+  opacity: 0.6;
 }
 
 .navigation-button+.navigation-button {
@@ -173,32 +189,34 @@ button {
 }
 
 .add-button {
-  padding-left: 16px;
-  padding-right: 24px;
+  padding: 0 24px 0 16px;
+  /* padding-left: 16px;
+  padding-right: 24px; */
   height: 50px;
-  width: 120px;
+  /* .add-buttonにwidthを指定している（汎用的なコードになっていない。この文字数しか対応できない） */
+  /* width: 120px; */
   color: #FFFFFF;
   background-color: #6B0FA4;
   border-radius: 4px;
   display: flex;
   align-items: center;
-}
-
-.add-word {
-  width: 54px;
-  height: 20px;
-  font-size: 14px;
   text-align: center;
 }
 
-.search {
-  opacity: 60%;
-  font-size: 20px;
+.add {
+  font-size: 15px;
 }
 
-input:not(:placeholder-shown) {
-  opacity: 87%;
+.add-word {
+  /* .add-wordにwidthを指定している（汎用的なコードになっていない。この文字数しか対応できない） */
+  /* width: 54px; */
+  line-height: 20px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 400;
 }
+
+
 
 .custom-button {
   color: #6B0FA4;
@@ -207,7 +225,6 @@ input:not(:placeholder-shown) {
   cursor: pointer;
   padding: 16px;
   /* 背景だけを透過をさせる */
-  background-clip: padding-box;
   border-left: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -223,30 +240,42 @@ input:not(:placeholder-shown) {
   display: flex;
 }
 
-div.data-header {
+.data-header,
+.data-body {
+  font-size: 14px;
+}
+
+.data-header {
   background-color: #FFFFFF;
 }
 
-div.data-body> :nth-child(odd) {
+.data-body> :nth-child(odd) {
   background-color: #F6F6F6;
 }
 
-div.data-body> :nth-child(even) {
+.data-body> :nth-child(even) {
   background-color: #FFFFFF;
+}
+
+.datas-wrap {
+  width: 100%;
+  overflow-x: scroll;
 }
 
 .datas {
   width: 580px;
-  font-size: 14px;
 }
 
 .id,
 .name,
 .email {
-  align-items: center;
-  opacity: 60%;
-  height: 48px;
+  height: 100%;
   padding: 14px 8px;
+  color: rgba(0, 0, 0, 0.60);
+  align-items: center;
+  font-weight: 400;
+  word-break: break-word;
+  line-height: 20.27px;
 }
 
 .id {
@@ -297,7 +326,6 @@ div.data-body> :nth-child(even) {
   background-color: #FFFFFF;
   width: 100%;
   margin-bottom: 18px;
-  background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   display: flex;
@@ -312,15 +340,20 @@ div.data-body> :nth-child(even) {
 
 .header-title {
   font-size: 22px;
-  font-weight: normal;
+  /* どうやって line-height 指定すべきか。一旦固定値で指定。 */
+  line-height: 31.86px;
 }
 
 .menu {
   background-color: transparent;
 }
 
-.pc-icon {
+.pc-home {
   display: none;
+}
+
+.sp-home {
+  color: #6B0FA4;
 }
 
 .sidebar-word {
@@ -329,14 +362,15 @@ div.data-body> :nth-child(even) {
 
 .content {
   background-color: rgba(84, 12, 130, 0.10);
+  color: #6B0FA4;
 }
 
 .button-label {
   display: none;
 }
 
-/* PC画面 ----------------------------------------------- */
 
+/* PC画面 ----------------------------------------------- */
 @media (min-width: 521px) {
 
   .main {
@@ -435,10 +469,6 @@ div.data-body> :nth-child(even) {
     padding-left: 8px;
   }
 
-  div.search-box>.material-icons-round {
-    opacity: 60%;
-  }
-
   .custom-button {
     height: 100%;
     padding-top: 0;
@@ -533,13 +563,15 @@ div.data-body> :nth-child(even) {
     order: 1;
   }
 
-  .pc-icon {
+  .pc-home {
     display: block;
+    color: #6B0FA4;
   }
 
-  .sp-icon {
+  .sp-home {
     display: none;
   }
+
 
 
   .sidebar-word {
