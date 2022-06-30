@@ -22,59 +22,6 @@
 
 <body>
   <div class="main">
-    <input type="checkbox" id="open" hidden>
-
-    <div class="content-modal">
-      <form action="#" method="post">
-        <div class="content-modal-wrap">
-          <div class="content-modal-header">
-            <label for="open">
-              <span class="material-icons-round cursor-pointer">close</span>
-            </label>
-            <div class="add-content">コンテンツ追加</div>
-            <button type="submit" class="register cursor-pointer">登録</button>
-          </div>
-          <div class="content-name">
-            <div class="content-title">氏名</div>
-            <input type="text" pattern=".{5}">
-            <div class="content-note">10文字以内で入力してください</div>
-          </div>
-          <div class="content-email">
-            <div class="content-title">メールアドレス</div>
-            <input type="email" pattern="^[a-zA-Z0-9]+$">
-            <div class="content-note">半角で入力してください</div>
-          </div>
-          <div class="content-tel">
-            <div class="content-title">電話番号</div>
-            <input type="tel" pattern="[\d]+">
-            <div class="content-note">ハイフンなしで入力してください</div>
-          </div>
-          <div class="content-birth">
-            <div class="content-title">誕生日</div>
-            <input type="date">
-          </div>
-          <div class="content-color">
-            <div class="content-title">イメージカラー</div>
-            <input id="image-color" type="color" value="#9360FF">
-          </div>
-          <div class="content-login">
-            <div class="content-title">ログイン状態</div>
-            <div class="check-login">
-              <input type="checkbox" id="login" name="login">
-              <label for="login">ログイン状態を維持する</label>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button class="reset">
-            <span class="reset-word">リセット</span>
-          </button>
-          <button type="submit" class="register-button">
-            <span class="register-word">登録</span>
-          </button>
-        </div>
-      </form>
-    </div>
 
     <nav class="navigation">
       <div class="navigation-button home cursor-pointer">
@@ -94,6 +41,73 @@
         <span class="material-icons-round">menu</span>
       </div>
     </nav>
+
+    <input type="checkbox" id="open" hidden>
+
+    <div class="content-modal">
+      <form action="#" method="post">
+        <div class="content-modal-wrap">
+
+          <div class="content-modal-top">
+            <div class="content-modal-header">
+              <label for="open">
+                <span class="material-icons-round cursor-pointer">close</span>
+              </label>
+              <div class="add-content">コンテンツ追加</div>
+              <button type="submit" class="register cursor-pointer">登録</button>
+            </div>
+          </div>
+
+          <div class="content-modal-middle">
+            <div class="content-modal-middle-forms">
+              <div class="content-name">
+                <div class="content-title">氏名</div>
+                <input type="text" pattern=".{5}">
+                <div class="content-note">10文字以内で入力してください</div>
+              </div>
+              <div class="content-email">
+                <div class="content-title">メールアドレス</div>
+                <input type="email" pattern="^[a-zA-Z0-9]+$">
+                <div class="content-note">半角で入力してください</div>
+              </div>
+              <div class="content-tel">
+                <div class="content-title">電話番号</div>
+                <input type="tel" pattern="[\d]+">
+                <div class="content-note">ハイフンなしで入力してください</div>
+              </div>
+              <div class="content-birth">
+                <div class="content-title">誕生日</div>
+                <input type="date">
+              </div>
+              <div class="content-color">
+                <div class="content-title">イメージカラー</div>
+                <input id="image-color" type="color" value="#9360FF">
+              </div>
+              <div class="content-login">
+                <div class="content-title">ログイン状態</div>
+                <div class="check-login">
+                  <input type="checkbox" id="login" name="login">
+                  <label for="login">ログイン状態を維持する</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-modal-bottom">
+            <div class="modal-footer">
+              <button class="reset">
+                <span class="reset-word">リセット</span>
+              </button>
+              <button type="submit" class="register-button">
+                <span class="register-word">登録</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
 
     <div class="contents">
       <div class="header-top-contents">
@@ -134,9 +148,11 @@
               <div class="id">1</div>
             </div>
             <div class="data">
-              <div class="name">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb竹内順子</div>
+              <div class="name">
+                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb竹内順子
+              </div>
               <!-- <div class="name">竹内順子</div> -->
-              <div class="email">bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbsample_sample@sample.com</div>
+              <div class="email">cccccccccccccccccccccccccccあｓｄふぁｓｄふぁｓｆさｄふぁｓｄふぁｓｆｄｓだｆさｄふぁｓｄふぁｓｄふぁｓｄｆsample_sample@sample.com</div>
               <div class="id">2</div>
             </div>
             <div class="data">
