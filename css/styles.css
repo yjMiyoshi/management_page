@@ -19,6 +19,7 @@ body {
   height: 100%;
   overflow: hidden;
 }
+
 h1 {
   margin: 0;
   padding: 0;
@@ -79,9 +80,13 @@ h1 {
 
 .content-note {
   font-size: 12px;
-  /* 文字色: #000000 87% を rbga で表記 */
+  /* 文字色: #000000 60% を rbga で表記 */
   color: rgba(0, 0, 0, 0.60);
   margin-top: 4px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 input {
@@ -100,19 +105,16 @@ input {
 }
 
 input:not([type="search"]):focus {
-  /* 入力・選択中は border を表示 */
+  /* 入力中・選択中は border を表示 */
   border: 2px solid #34B0C0;
 }
 
-/* placeholder の color 指定 */
+/* input 要素の入力 color 指定 */
 input:not(:placeholder-shown) {
   color: rgba(0, 0, 0, 0.87);
 }
 
-/*  */
-input[type="search"]::-webkit-search-decoration {
-  /* display: none; */
-}
+
 
 .search-box:focus-within {
   border: 2px solid #34B0C0;
@@ -158,16 +160,11 @@ input[type="search"]::-webkit-search-decoration {
   padding: 4px;
   border-radius: 40px;
   flex-grow: 1;
-  cursor: pointer;
 }
 
 .material-icons-round {
   margin: 0;
   padding: 0;
-}
-
-.navigation-button span.material-icons-round {
-  color: #6B0FA4;
 }
 
 .search {
@@ -222,9 +219,7 @@ button {
   color: #6B0FA4;
   /* 初期値(背景色無効) */
   background-color: transparent;
-  cursor: pointer;
   padding: 16px;
-  /* 背景だけを透過をさせる */
   border-left: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -238,6 +233,18 @@ button {
 .data-header,
 .data {
   display: flex;
+}
+
+.datas .name {
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
+}
+
+.datas .id {
+  width: 180px;
+  min-width: 180px;
+  max-width: 180px;
 }
 
 .data-header,
@@ -346,6 +353,7 @@ button {
 
 .menu {
   background-color: transparent;
+  color: #6B0FA4;
 }
 
 .pc-home {
@@ -356,7 +364,8 @@ button {
   color: #6B0FA4;
 }
 
-.sidebar-word {
+.home-word,
+.content-word {
   display: none;
 }
 
@@ -369,6 +378,28 @@ button {
   display: none;
 }
 
+.check-login {
+  height: 48px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.check-login>input {
+  width: 48px;
+  /* デフォルトの checkbox 非表示 */
+  /* display: none; */
+}
+
+.check-login>label {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 14px;
+}
+
+#login {
+  height: 16px;
+}
+
 
 /* PC画面 ----------------------------------------------- */
 @media (min-width: 521px) {
@@ -378,28 +409,7 @@ button {
   }
 
   .contents {
-    padding-top: 42px;
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
-  .check-login {
-    margin-top: 22px;
-    display: flex;
-    align-items: center;
-  }
-
-  .check-login>input {
-    height: 48px;
-    width: 48px;
-  }
-
-  .check-login>label {
-    font-size: 14px;
-  }
-
-  #login {
-    height: 16px;
+    margin: 42px 40px;
   }
 
   .content-modal {
@@ -450,7 +460,7 @@ button {
   }
 
   .navigation-button span.material-icons-round {
-    color: rgba(0, 0, 0, 0.6);
+    /* color: rgba(0, 0, 0, 0.6); */
   }
 
   label.content {
@@ -554,29 +564,33 @@ button {
 
   .menu {
     background-color: transparent;
+    color: rgba(0, 0, 0, 0.87);
     padding-top: 60px;
     padding-bottom: 60px;
   }
 
   .home {
-    background-color: transparent;
     order: 1;
   }
 
   .pc-home {
     display: block;
-    color: #6B0FA4;
+    color: rgba(0, 0, 0, 0.60);
   }
 
   .sp-home {
     display: none;
   }
 
-
-
-  .sidebar-word {
+  .home-word,
+  .content-word {
     display: block;
     font-size: 10px;
+    line-height: 10px;
+  }
+
+  .selected-word {
+    font-weight: 500;
   }
 
   .content {
@@ -589,10 +603,6 @@ button {
     background-color: rgba(84, 12, 130, 0.10);
     border-radius: 40px;
     width: 100%;
-  }
-
-  .content span.material-icons-round {
-    color: #6B0FA4;
   }
 
   .button-label {

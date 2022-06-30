@@ -29,10 +29,10 @@
         <div class="content-modal-wrap">
           <div class="content-modal-header">
             <label for="open">
-              <span class="material-icons-round">close</span>
+              <span class="material-icons-round cursor-pointer">close</span>
             </label>
             <div class="add-content">コンテンツ追加</div>
-            <button type="submit" class="register">登録</button>
+            <button type="submit" class="register cursor-pointer">登録</button>
           </div>
           <div class="content-name">
             <div class="content-title">氏名</div>
@@ -77,20 +77,20 @@
     </div>
 
     <nav class="navigation">
-      <div class="navigation-button home">
+      <div class="navigation-button home cursor-pointer">
         <div class="pc-home">
           <span class="material-icons-outlined">home</span>
         </div>
         <div class="sp-home">
           <span class="material-symbols-rounded">house</span>
         </div>
-        <div class="sidebar-word">ホーム</div>
+        <div class="home-word">ホーム</div>
       </div>
-      <label class="navigation-button content" for="open">
+      <label class="navigation-button content cursor-pointer" for="open">
         <span class="material-icons-outlined">recent_actors</span>
-        <div class="sidebar-word">コンテンツ</div>
+        <div class="content-word selected-word">コンテンツ</div>
       </label>
-      <div class="navigation-button menu">
+      <div class="navigation-button menu cursor-pointer">
         <span class="material-icons-round">menu</span>
       </div>
     </nav>
@@ -98,7 +98,7 @@
     <div class="contents">
       <div class="header-top-contents">
         <h1 class="header-title">コンテンツ一覧</h1>
-        <button class="add-button">
+        <button class="add-button cursor-pointer">
           <span class="material-icons-round add">add</span>
           <span class="add-word">追加</span>
         </button>
@@ -109,11 +109,11 @@
           <input type="search" placeholder="絞り込み検索">
         </div>
         <div class="header-button">
-          <button class="custom-button">
+          <button class="custom-button cursor-pointer">
             <span class="material-icons-round header-button-icon">sync_alt</span>
             <span class="button-label">列を並び替え</span>
           </button>
-          <button class="custom-button">
+          <button class="custom-button cursor-pointer">
             <span class="material-symbols-rounded header-button-icon">file_download</span>
             <span class="button-label">表データを保存</span>
           </button>
@@ -198,7 +198,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </body>
 
