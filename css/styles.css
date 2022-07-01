@@ -40,7 +40,7 @@ h1 {
 }
 
 /* コンテンツアイコンクリック時に表示させるモーダル */
-.content-modal {
+.content-sheet {
   z-index: 20;
   top: 100%;
   width: 100%;
@@ -58,27 +58,27 @@ form {
   height: 100%;
 }
 
-.content-modal-wrap {
+.content-sheet-wrap {
   height: 100%;
   display: flex;
   flex-direction: column;
   transition: all 0.5s ease-in-out;
 }
 
-.content-modal-top {
+.content-sheet-top {
   height: 74px;
   width: 100%;
   padding: 24px 16px;
 }
 
-.content-modal-middle {
+.content-sheet-middle {
   padding: 6px 16px 24px 16px;
   height: 100%;
   flex-grow: 1;
   overflow-y: scroll;
 }
 
-.content-modal-bottom {
+.content-sheet-bottom {
   width: 100%;
   padding: 16px 16px;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
@@ -87,11 +87,11 @@ form {
 }
 
 /* コンテンツアイコンクリック時、モーダルを表示させる */
-#open:checked+.content-modal {
+#open:checked+.content-sheet {
   top: 98px;
 }
 
-.content-modal-header {
+.content-sheet-header {
   display: flex;
   margin-bottom: 30px;
 }
@@ -126,8 +126,8 @@ input {
   outline: none;
 }
 
-/* content-modal 配下の input */
-.content-modal input {
+/* content-sheet 配下の input */
+.content-sheet input {
   padding: 16px 19px;
   background-color: #F6F6F6;
   width: 100%;
@@ -455,7 +455,7 @@ button {
     padding: 42px 40px;
   }
 
-  .content-modal {
+  .content-sheet {
     z-index: 5;
     width: 0px;
     height: 100%;
@@ -466,12 +466,12 @@ button {
   }
 
   /* コンテンツアイコンクリック時、モーダルを表示させる */
-  #open:checked+.content-modal {
+  #open:checked+.content-sheet {
     width: 320px;
     min-width: 320px;
   }
 
-  .content-modal-wrap {
+  .content-sheet-wrap {
     left: -320px;
     width: 320px;
     min-width: 320px;
@@ -479,12 +479,12 @@ button {
     height: 100%;
   }
 
-  #open:checked+.content-modal-wrap {
+  #open:checked+.content-sheet-wrap {
     left: 0;
   }
 
-  .content-modal-header>label,
-  .content-modal-header>button {
+  .content-sheet-header>label,
+  .content-sheet-header>button {
     display: none;
   }
 
@@ -570,7 +570,7 @@ button {
     justify-content: center;
   }
 
-  .content-modal-bottom {
+  .content-sheet-bottom {
     display: flex;
   }
 
