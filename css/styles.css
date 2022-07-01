@@ -144,11 +144,37 @@ input:not(:placeholder-shown) {
   color: rgba(0, 0, 0, 0.87);
 }
 
+.header-second-contents {
+  width: 100%;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+}
 
+.search-box {
+  background-color: #FFFFFF;
+  width: 100%;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px 0 0 4px;
+}
 
 .search-box:focus-within {
   border: 2px solid #34B0C0;
-  border-radius: 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.header-button {
+  background-color: #FFFFFF;
+  display: flex;
+  border-radius: 0 4px 4px 0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 #image-color {
@@ -203,10 +229,6 @@ input:not(:placeholder-shown) {
   margin-left: 24px;
 }
 
-.header-button {
-  display: flex;
-}
-
 button {
   /* default の border が不要なため消す */
   border: none;
@@ -249,6 +271,9 @@ button {
   /* 初期値(背景色無効) */
   background-color: transparent;
   padding: 16px;
+}
+
+.custom-button+.custom-button {
   border-left: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -330,14 +355,6 @@ button {
   width: 320px;
 }
 
-.search-box {
-  width: 100%;
-  padding: 14px;
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
-}
-
 .header-top-contents {
   width: 100%;
   margin-bottom: 24px;
@@ -356,17 +373,6 @@ button {
   color: #6B0FA4;
   background-color: transparent;
   font-size: 18px;
-}
-
-.header-second-contents {
-  background-color: #FFFFFF;
-  width: 100%;
-  margin-bottom: 18px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  justify-items: center;
 }
 
 [type="search"] {
@@ -512,16 +518,31 @@ button {
     display: none;
   }
 
+  .header-button {
+    border: none;
+    background-color: transparent;
+  }
+
+  .search-box {
+    padding-left: 14px;
+    border-radius: 4px;
+  }
+
   div.search-box>input {
     padding-left: 8px;
   }
 
+  .custom-button+.custom-button {
+    border: none;
+  }
+
   .custom-button {
+    background-color: #FFFFFF;
     height: 100%;
     padding-top: 0;
     padding-bottom: 0;
     margin-left: 16px;
-    border: 1px solid #6B0FA4;
+    border: 1px solid #6B0FA4 !important;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -565,12 +586,6 @@ button {
 
   .name {
     width: 240px;
-  }
-
-  .search-box {
-    background-color: #FFFFFF;
-    padding-left: 14px;
-    border-radius: 4px;
   }
 
   .header-top-contents {
