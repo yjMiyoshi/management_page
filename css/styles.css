@@ -611,6 +611,11 @@ button {
     display: none;
   }
 
+  .nav-icon {
+    font-size: 28px;
+    line-height: 28px;
+  }
+
   .home-word,
   .content-word {
     display: block;
