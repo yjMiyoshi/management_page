@@ -1,9 +1,13 @@
-/* common */
+/* sp ファースト */
 
 * {
   /* padding と border を幅と高さに含める */
   box-sizing: border-box;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Noto Sans JP';
+}
+
+form {
+  height: 100%;
 }
 
 html {
@@ -12,7 +16,7 @@ html {
 }
 
 body {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Noto Sans JP';
   /* 背景色: #C8D5E4 50% を rbga で表記 */
   background-color: rgba(200, 213, 228, 0.5);
   margin: 0%;
@@ -30,6 +34,26 @@ h1 {
 .main {
   max-height: 100%;
   height: 100%;
+}
+
+/* メニューを最下部に固定 */
+.navigation {
+  z-index: 10;
+  width: 100%;
+  height: 48px;
+  left: 0;
+  bottom: 0;
+  padding: 8px 16px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.navigation-button {
+  flex-grow: 1;
 }
 
 .contents {
@@ -54,11 +78,7 @@ h1 {
   overflow-x: hidden;
 }
 
-form {
-  height: 100%;
-}
-
-.content-sheet-wrap {
+.content-sheet-form {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -87,13 +107,22 @@ form {
 }
 
 /* コンテンツアイコンクリック時、モーダルを表示させる */
-#open:checked+.content-sheet {
+#sheet-toggle:checked+.content-sheet {
   top: 98px;
 }
 
 .content-sheet-header {
   display: flex;
+  align-items: center;
   margin-bottom: 30px;
+}
+
+.sheet-toggle {
+  display: flex;
+}
+
+.close {
+  display: inline-block;
 }
 
 .content-title {
@@ -201,33 +230,10 @@ div.search-box>input {
   padding: 0;
 }
 
-/* メニューを最下部に固定 */
-.navigation {
-  z-index: 10;
-  width: 100%;
-  height: 48px;
-  left: 0;
-  bottom: 0;
-  padding: 8px 16px;
-  background-color: #FFFFFF;
-  overflow: hidden;
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-}
-
-.navigation-button {
-  padding: 4px;
-  border-radius: 40px;
-  flex-grow: 1;
-}
-
 .search {
   /* 虫眼鏡アイコンを opacity で調整 子要素無し */
   opacity: 0.6;
   font-size: 24px;
-  /* margin-right: 8px; */
 }
 
 .navigation-button+.navigation-button {
@@ -237,14 +243,15 @@ div.search-box>input {
 button {
   /* default の border が不要なため消す */
   border: none;
+  padding: 0;
 }
 
 .add-button {
-  height: 50px;
   position: relative;
+  height: 50px;
+  min-height: 50px;
   min-width: 120px;
   padding: 15px 24px 15px 42px;
-  height: 50px;
   color: #FFFFFF;
   background-color: #6B0FA4;
   border-radius: 4px;
@@ -276,6 +283,7 @@ button {
   /* 初期値(背景色無効) */
   background-color: transparent;
   padding: 16px;
+  display: flex;
 }
 
 .custom-button+.custom-button {
@@ -283,58 +291,63 @@ button {
 }
 
 /* レコード部のcss */
-.data-top-parts {
+.list-top-parts {
   background-color: #FFFFFF;
   height: 8px;
   border-radius: 4px 4px 0 0;
 }
 
-.data-header,
-.data {
+.list-header,
+.user-info {
   display: flex;
 }
 
-.datas .name {
-  width: 240px;
-  min-width: 240px;
-  max-width: 240px;
+.user-name {
+  width: 160px;
+  min-width: 160px;
+  max-width: 160px;
+  width: 160px;
 }
 
-.datas .id {
-  width: 180px;
-  min-width: 180px;
-  max-width: 180px;
+.user-email {
+  width: 320px;
 }
 
-.data-header,
-.data-body {
+.user-id {
+  min-width: 100px;
+  max-width: 100px;
+  width: 100px;
+}
+
+.list-header,
+.list-body {
   font-size: 14px;
 }
 
-.data-header {
+.list-header {
   background-color: #FFFFFF;
 }
 
-.data-body> :nth-child(odd) {
+.list-body> :nth-child(odd) {
   background-color: #F6F6F6;
 }
 
-.data-body> :nth-child(even) {
+.list-body> :nth-child(even) {
   background-color: #FFFFFF;
 }
 
-.datas-wrap {
+.user-list {
   width: 100%;
   overflow-x: scroll;
 }
 
-.datas {
+.user-list-container {
   width: 580px;
 }
 
-.id,
-.name,
-.email {
+.user-id,
+.user-name,
+.user-email {
   height: 100%;
   padding: 14px 8px;
   color: rgba(0, 0, 0, 0.60);
@@ -346,18 +359,6 @@ button {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-}
-
-.id {
-  width: 100px;
-}
-
-.name {
-  width: 160px;
-}
-
-.email {
-  width: 320px;
 }
 
 .header-top-contents {
@@ -374,7 +375,7 @@ button {
 }
 
 .register {
-  margin: 0 0 0 auto;
+  margin-left: auto;
   color: #6B0FA4;
   background-color: transparent;
   font-size: 18px;
@@ -389,11 +390,7 @@ button {
   font-size: 22px;
   /* font-size 22px に対し、line-height 31.86px は 1.45倍 */
   line-height: 1.45;
-}
-
-.menu {
-  background-color: transparent;
-  color: #6B0FA4;
+  white-space: nowrap;
 }
 
 .pc-home {
@@ -402,11 +399,12 @@ button {
 
 .sp-home {
   color: #6B0FA4;
+  display: flex;
+  align-items: center;
 }
 
 .nav-icon {
   font-size: 32px;
-  line-height: 32px;
 }
 
 .home-word,
@@ -414,9 +412,17 @@ button {
   display: none;
 }
 
-.content {
-  background-color: rgba(84, 12, 130, 0.10);
+.icon-box {
+  height: 100%;
   color: #6B0FA4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected-icon {
+  background-color: rgba(84, 12, 130, 0.10);
+  border-radius: 40px;
 }
 
 .button-label {
@@ -466,12 +472,12 @@ button {
   }
 
   /* コンテンツアイコンクリック時、モーダルを表示させる */
-  #open:checked+.content-sheet {
+  #sheet-toggle:checked+.content-sheet {
     width: 320px;
     min-width: 320px;
   }
 
-  .content-sheet-wrap {
+  .content-sheet-form {
     left: -320px;
     width: 320px;
     min-width: 320px;
@@ -479,7 +485,7 @@ button {
     height: 100%;
   }
 
-  #open:checked+.content-sheet-wrap {
+  #sheet-toggle:checked+.content-sheet-form {
     left: 0;
   }
 
@@ -495,7 +501,7 @@ button {
     height: 100%;
     left: auto;
     bottom: auto;
-    padding: 0 12px;
+    padding: 56px 0;
     background-color: #FFFFFF;
     position: static;
     flex-direction: column;
@@ -503,20 +509,20 @@ button {
   }
 
   .navigation-button {
-    padding: 0;
-    padding-bottom: 14px;
-    border-radius: 0;
+    padding: 5px 12px;
+    display: flex;
+    flex-direction: column;
     flex-grow: 0;
-    margin-bottom: 14px;
+    /* font-size 10px に対し、line-height 10px は 1倍 */
     line-height: 1;
-  }
-
-  label.content {
-    display: inline-block;
   }
 
   .navigation-button+.navigation-button {
     margin-left: 0;
+  }
+
+  .icon-box {
+    padding: 2px 14px;
   }
 
   .add-button {
@@ -530,6 +536,11 @@ button {
 
   .search-box {
     padding-left: 14px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .search-box:focus-within {
     border-radius: 4px;
   }
 
@@ -575,7 +586,7 @@ button {
   }
 
   /* レコード部のcss */
-  .datas {
+  .user-list-container {
     width: 100%;
   }
 
@@ -585,7 +596,7 @@ button {
     order: -1;
   }
 
-  .name {
+  .user-name {
     width: 240px;
   }
 
@@ -607,14 +618,20 @@ button {
     font-size: 32px;
   }
 
+  .icon-size-28 {
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+  }
+
   .menu {
-    background-color: transparent;
     color: rgba(0, 0, 0, 0.87);
-    padding-top: 60px;
-    padding-bottom: 60px;
+    margin-bottom: 40px;
   }
 
   .home {
+    margin-top: 4px;
     order: 1;
   }
 
@@ -629,7 +646,6 @@ button {
 
   .nav-icon {
     font-size: 28px;
-    line-height: 28px;
   }
 
   .home-word,
@@ -637,6 +653,12 @@ button {
     display: block;
     font-size: 10px;
     line-height: 10px;
+    margin-top: 4px;
+  }
+
+  .home-word {
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.60);
   }
 
   .selected-word {
@@ -644,15 +666,10 @@ button {
   }
 
   .content {
+    margin-top: 4px;
     background-color: transparent;
     color: #6B0FA4;
     order: 2;
-  }
-
-  .content span {
-    background-color: rgba(84, 12, 130, 0.10);
-    border-radius: 40px;
-    width: 100%;
   }
 
   .button-label {
