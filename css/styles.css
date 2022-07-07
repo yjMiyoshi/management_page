@@ -1,111 +1,185 @@
-/* padding と border を幅と高さに含める */
+/* common */
+
 * {
+  /* padding と border を幅と高さに含める */
   box-sizing: border-box;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
-/* SP画面 */
 html {
   max-height: 100%;
   height: 100%;
 }
 
 body {
-  background-color: #e3eaf2;
+  font-family: 'Noto Sans JP', sans-serif;
+  /* 背景色: #C8D5E4 50% を rbga で表記 */
+  background-color: rgba(200, 213, 228, 0.5);
   margin: 0%;
   max-height: 100%;
   height: 100%;
   overflow: hidden;
 }
 
+h1 {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
 .main {
   max-height: 100%;
   height: 100%;
-  overflow-y: scroll;
-}
-
-h1 {
-  margin: 0;
 }
 
 .contents {
-  padding-bottom: 66px;
+  height: 100%;
   width: 100%;
-  padding-top: 24px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 24px 16px 66px 16px;
+  overflow-y: scroll;
 }
 
 /* コンテンツアイコンクリック時に表示させるモーダル */
-.content-modal {
+.content-sheet {
   z-index: 20;
   top: 100%;
   width: 100%;
-  height: 100%;
+  /* header を考慮 */
+  height: calc(100% - 98px);
   background-color: #FFFFFF;
   border-radius: 16px 16px 0 0;
   position: absolute;
-  transition: all 0.5s ease-out;
-  overflow-y: scroll;
+  transition: all 0.5s ease-in-out;
   box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.30);
+  overflow-x: hidden;
 }
 
-.content-modal-wrap {
-  /* 上部(98px) + 下部(48px) の合計値 */
-  padding: 24px 16px 146px 16px;
+form {
+  height: 100%;
+}
+
+.content-sheet-wrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s ease-in-out;
+}
+
+.content-sheet-top {
+  height: 74px;
+  width: 100%;
+  padding: 24px 16px;
+}
+
+.content-sheet-middle {
+  padding: 6px 16px 24px 16px;
+  height: 100%;
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+.content-sheet-bottom {
+  width: 100%;
+  padding: 16px 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  display: none;
+  justify-content: space-between;
 }
 
 /* コンテンツアイコンクリック時、モーダルを表示させる */
-#open:checked+.content-modal {
+#open:checked+.content-sheet {
   top: 98px;
 }
 
-.content-modal-header {
+.content-sheet-header {
   display: flex;
   margin-bottom: 30px;
 }
 
 .content-title {
   font-size: 14px;
-  opacity: 87%;
-  margin-top: 24px;
+  /* 文字色: #000000 87% を rbga で表記 */
+  color: rgba(0, 0, 0, 0.87);
   margin-bottom: 8px;
+}
+
+.input-content+.input-content {
+  margin-top: 24px;
 }
 
 .content-note {
   font-size: 12px;
-  opacity: 60%;
+  /* 文字色: #000000 60% を rbga で表記 */
+  color: rgba(0, 0, 0, 0.60);
   margin-top: 4px;
 }
 
-.content-login {
-  display: none;
+.cursor-pointer {
+  cursor: pointer;
 }
 
-/* content-modal 配下の input */
-.content-modal input {
-  color: rgba(0, 0, 0, 0.87);
-  width: 100%;
-  height: 52px;
-  border-radius: 8px;
-  background-color: #F6F6F6;
+input {
   padding: 0;
+  color: rgba(0, 0, 0, 0.87);
+  border-radius: 8px;
   border: none;
   outline: none;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  padding-left: 19px;
 }
 
-input[type="date"] {
-  padding-right: 19px;
+/* content-sheet 配下の input */
+.content-sheet input {
+  padding: 16px 19px;
+  background-color: #F6F6F6;
+  width: 100%;
+  height: 52px;
 }
 
-input[type="color"] {
-  background-color: red;
-  padding: 0px;
-}
-input:focus{
+input:not([type="search"]):focus {
+  /* 入力中・選択中は border を表示 */
   border: 2px solid #34B0C0;
+}
+
+/* input 要素の入力 color 指定 */
+input:not(:placeholder-shown) {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.header-second-contents {
+  width: 100%;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+}
+
+.search-box {
+  background-color: #FFFFFF;
+  width: 100%;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px 0 0 4px;
+}
+
+.search-box:focus-within {
+  border: 2px solid #34B0C0;
+  border-radius: 4px 0 0 4px;
+}
+
+div.search-box>input {
+  width: 100%;
+  padding-left: 8px;
+}
+
+.header-button {
+  background-color: #FFFFFF;
+  display: flex;
+  border-radius: 0 4px 4px 0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 #image-color {
@@ -145,27 +219,19 @@ input:focus{
 
 .navigation-button {
   padding: 4px;
-  background-color: #540c82;
   border-radius: 40px;
   flex-grow: 1;
-  cursor: pointer;
 }
 
-.material-icons {
-  margin: 0;
-  padding: 0;
-}
-
-.navigation-button i.material-icons {
-  color: #6B0FA4;
+.search {
+  /* 虫眼鏡アイコンを opacity で調整 子要素無し */
+  opacity: 0.6;
+  font-size: 24px;
+  /* margin-right: 8px; */
 }
 
 .navigation-button+.navigation-button {
   margin-left: 24px;
-}
-
-.header-button {
-  display: flex;
 }
 
 button {
@@ -174,41 +240,45 @@ button {
 }
 
 .add-button {
-  padding-left: 16px;
-  padding-right: 24px;
   height: 50px;
-  width: 120px;
+  position: relative;
+  min-width: 120px;
+  padding: 15px 24px 15px 42px;
+  height: 50px;
   color: #FFFFFF;
   background-color: #6B0FA4;
   border-radius: 4px;
   display: flex;
   align-items: center;
-}
-
-.add-word {
-  width: 54px;
-  height: 20px;
-  font-size: 14px;
   text-align: center;
 }
 
-.search {
-  opacity: 60%;
-  font-size: 20px;
+.add {
+  position: absolute;
+  left: 16px;
+  font-size: 18px;
 }
 
-input:not(:placeholder-shown) {
-  opacity: 87%;
+.add-word {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.header-button-icon {
+  font-size: 24px;
 }
 
 .custom-button {
   color: #6B0FA4;
   /* 初期値(背景色無効) */
   background-color: transparent;
-  cursor: pointer;
   padding: 16px;
-  /* 背景だけを透過をさせる */
-  background-clip: padding-box;
+}
+
+.custom-button+.custom-button {
   border-left: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -224,30 +294,58 @@ input:not(:placeholder-shown) {
   display: flex;
 }
 
-div.data-header {
+.datas .name {
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
+}
+
+.datas .id {
+  width: 180px;
+  min-width: 180px;
+  max-width: 180px;
+}
+
+.data-header,
+.data-body {
+  font-size: 14px;
+}
+
+.data-header {
   background-color: #FFFFFF;
 }
 
-div.data-body> :nth-child(odd) {
+.data-body> :nth-child(odd) {
   background-color: #F6F6F6;
 }
 
-div.data-body> :nth-child(even) {
+.data-body> :nth-child(even) {
   background-color: #FFFFFF;
+}
+
+.datas-wrap {
+  width: 100%;
+  overflow-x: scroll;
 }
 
 .datas {
   width: 580px;
-  font-size: 14px;
 }
 
 .id,
 .name,
 .email {
-  align-items: center;
-  opacity: 60%;
-  height: 48px;
+  height: 100%;
   padding: 14px 8px;
+  color: rgba(0, 0, 0, 0.60);
+  align-items: center;
+  font-weight: 400;
+  /* font-size 14px に対し、line-height 20.27px は 1.45倍 */
+  line-height: 1.45;
+  /* 要素より長い文字列を省略する */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .id {
@@ -260,14 +358,6 @@ div.data-body> :nth-child(even) {
 
 .email {
   width: 320px;
-}
-
-.search-box {
-  width: 100%;
-  padding: 14px;
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
 }
 
 .header-top-contents {
@@ -290,22 +380,6 @@ div.data-body> :nth-child(even) {
   font-size: 18px;
 }
 
-.modal-footer {
-  display: none;
-}
-
-.header-second-contents {
-  background-color: #FFFFFF;
-  width: 100%;
-  margin-bottom: 18px;
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  justify-items: center;
-}
-
 [type="search"] {
   font-size: 14px;
   border: none;
@@ -313,86 +387,104 @@ div.data-body> :nth-child(even) {
 
 .header-title {
   font-size: 22px;
-  font-weight: normal;
+  /* font-size 22px に対し、line-height 31.86px は 1.45倍 */
+  line-height: 1.45;
 }
 
 .menu {
   background-color: transparent;
+  color: #6B0FA4;
 }
 
-.home {
-  background-color: transparent;
+.pc-home {
+  display: none;
 }
 
-.sidebar-word {
+.sp-home {
+  color: #6B0FA4;
+}
+
+.nav-icon {
+  font-size: 32px;
+  line-height: 32px;
+}
+
+.home-word,
+.content-word {
   display: none;
 }
 
 .content {
   background-color: rgba(84, 12, 130, 0.10);
+  color: #6B0FA4;
 }
 
 .button-label {
   display: none;
 }
 
-/* PC画面 ----------------------------------------------- */
+.check-login {
+  height: 48px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
 
-@media (min-width: 376px) {
+.check-login>input {
+  width: 48px;
+}
+
+.check-login>label {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 14px;
+}
+
+#login {
+  height: 16px;
+}
+
+
+/* PC画面 ----------------------------------------------- */
+@media (min-width: 521px) {
 
   .main {
     display: flex;
   }
 
   .contents {
-    padding-top: 42px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 42px 40px;
   }
 
-  .content-login {
-    display: block;
-  }
-
-  .check-login {
-    margin-top: 22px;
-    display: flex;
-    align-items: center;
-  }
-
-  .check-login>input {
-    height: 48px;
-    width: 48px;
-  }
-
-  .check-login>label {
-    font-size: 14px;
-  }
-
-  #login {
-    height: 16px;
-  }
-
-  .content-modal {
-    width: 320px;
-    top: 0;
-    left: -100%;
-    /* padding-bottom: 0; */
-    border-radius: 0;
-    transition: all 0.7s ease-out;
-    overflow-y: scroll;
-    border-left: 1px solid rgba(0, 0, 0, 0.12);
+  .content-sheet {
     z-index: 5;
+    width: 0px;
+    height: 100%;
+    min-width: 0px;
+    position: static;
+    border-radius: 0;
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
   }
 
   /* コンテンツアイコンクリック時、モーダルを表示させる */
-  #open:checked+.content-modal {
-    top: 0;
-    left: 80px;
+  #open:checked+.content-sheet {
+    width: 320px;
+    min-width: 320px;
   }
 
-  .content-modal-header>label,
-  .content-modal-header>button {
+  .content-sheet-wrap {
+    left: -320px;
+    width: 320px;
+    min-width: 320px;
+    max-width: 320px;
+    height: 100%;
+  }
+
+  #open:checked+.content-sheet-wrap {
+    left: 0;
+  }
+
+  .content-sheet-header>label,
+  .content-sheet-header>button {
     display: none;
   }
 
@@ -405,7 +497,6 @@ div.data-body> :nth-child(even) {
     bottom: auto;
     padding: 0 12px;
     background-color: #FFFFFF;
-    overflow: hidden;
     position: static;
     flex-direction: column;
     justify-content: flex-start;
@@ -420,10 +511,6 @@ div.data-body> :nth-child(even) {
     line-height: 1;
   }
 
-  .navigation-button i.material-icons {
-    color: rgba(0, 0, 0, 0.6);
-  }
-
   label.content {
     display: inline-block;
   }
@@ -436,20 +523,27 @@ div.data-body> :nth-child(even) {
     display: none;
   }
 
-  div.search-box>input {
-    padding-left: 8px;
+  .header-button {
+    border: none;
+    background-color: transparent;
   }
 
-  div.search-box>.material-icons {
-    opacity: 60%;
+  .search-box {
+    padding-left: 14px;
+    border-radius: 4px;
+  }
+
+  .custom-button+.custom-button {
+    border: none;
   }
 
   .custom-button {
+    background-color: #FFFFFF;
     height: 100%;
     padding-top: 0;
     padding-bottom: 0;
     margin-left: 16px;
-    border: 1px solid #6B0FA4;
+    border: 1px solid #6B0FA4 !important;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -476,12 +570,8 @@ div.data-body> :nth-child(even) {
     justify-content: center;
   }
 
-  .modal-footer {
-    padding: 16px;
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
+  .content-sheet-bottom {
     display: flex;
-    bottom: 16px;
-    margin-top: auto;
   }
 
   /* レコード部のcss */
@@ -497,16 +587,6 @@ div.data-body> :nth-child(even) {
 
   .name {
     width: 240px;
-  }
-
-  .email {
-    width: 860px;
-  }
-
-  .search-box {
-    background-color: #FFFFFF;
-    padding-left: 14px;
-    border-radius: 4px;
   }
 
   .header-top-contents {
@@ -529,33 +609,50 @@ div.data-body> :nth-child(even) {
 
   .menu {
     background-color: transparent;
+    color: rgba(0, 0, 0, 0.87);
     padding-top: 60px;
     padding-bottom: 60px;
   }
 
   .home {
-    background-color: transparent;
+    order: 1;
   }
 
-  .sidebar-word {
+  .pc-home {
+    display: block;
+    color: rgba(0, 0, 0, 0.60);
+  }
+
+  .sp-home {
+    display: none;
+  }
+
+  .nav-icon {
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  .home-word,
+  .content-word {
     display: block;
     font-size: 10px;
+    line-height: 10px;
+  }
+
+  .selected-word {
+    font-weight: 500;
   }
 
   .content {
     background-color: transparent;
-    order: 1;
     color: #6B0FA4;
+    order: 2;
   }
 
-  .content i {
+  .content span {
     background-color: rgba(84, 12, 130, 0.10);
     border-radius: 40px;
     width: 100%;
-  }
-
-  .content i.material-icons {
-    color: #6B0FA4;
   }
 
   .button-label {
