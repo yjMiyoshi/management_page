@@ -23,24 +23,24 @@
     <nav class="navigation">
       <div class="navigation-button home cursor-pointer">
         <div class="icon-box">
-          <div class="pc-home icon-size-28">
-            <span class="material-icons-outlined nav-icon icon-size-28">home</span>
+          <div class="pc-home icon-size">
+            <span class="material-icons-outlined icon-size">home</span>
           </div>
           <div class="sp-home">
-            <span class="material-symbols-rounded nav-icon">house</span>
+            <span class="material-symbols-rounded icon-size">house</span>
           </div>
         </div>
         <div class="home-word">ホーム</div>
       </div>
       <label class="navigation-button content cursor-pointer" for="sheet-toggle">
         <div class="icon-box selected-icon">
-          <span class="material-icons-outlined nav-icon icon-size-28">recent_actors</span>
+          <span class="material-icons-outlined icon-size">recent_actors</span>
         </div>
         <div class="content-word selected-word">コンテンツ</div>
       </label>
       <div class="navigation-button cursor-pointer">
         <div class="icon-box menu">
-          <span class="material-icons-round nav-icon icon-size-28">menu</span>
+          <span class="material-icons-round icon-size">menu</span>
         </div>
       </div>
     </nav>
@@ -88,10 +88,16 @@
               </div>
               <div class="input-content">
                 <div class="content-title">ログイン状態</div>
-                <div class="check-login">
+                <label class="check-login" for="login">
                   <input type="checkbox" id="login" name="login">
-                  <label for="login">ログイン状態を維持する</label>
-                </div>
+                  <div class="blank-icon">
+                    <span class="material-icons-outlined icon-size-20">check_box_outline_blank</span>
+                  </div>
+                  <div class="checked-icon">
+                    <span class="material-icons-outlined icon-size-20">check_box</span>
+                  </div>
+                  <div class="keep-login">ログイン状態を維持する</div>
+                </label>
               </div>
             </div>
           </div>
