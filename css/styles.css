@@ -11,8 +11,8 @@ form {
 }
 
 html {
-  max-height: 100%;
   height: 100%;
+  max-height: 100%;
 }
 
 body {
@@ -20,8 +20,8 @@ body {
   /* 背景色: #C8D5E4 50% を rbga で表記 */
   background-color: rgba(200, 213, 228, 0.5);
   margin: 0%;
-  max-height: 100%;
   height: 100%;
+  max-height: 100%;
   overflow: hidden;
 }
 
@@ -32,8 +32,8 @@ h1 {
 }
 
 .main {
-  max-height: 100%;
   height: 100%;
+  max-height: 100%;
 }
 
 /* メニューを最下部に固定 */
@@ -57,8 +57,8 @@ h1 {
 }
 
 .contents {
-  height: 100%;
   width: 100%;
+  height: 100%;
   padding: 24px 16px 66px 16px;
   overflow-y: scroll;
 }
@@ -86,23 +86,23 @@ h1 {
 }
 
 .content-sheet-top {
-  height: 74px;
   width: 100%;
+  height: 74px;
   padding: 24px 16px;
 }
 
 .content-sheet-middle {
-  padding: 6px 16px 24px 16px;
   height: 100%;
+  padding: 6px 16px 24px 16px;
   flex-grow: 1;
   overflow-y: scroll;
 }
 
 .content-sheet-bottom {
+  display: none;
   width: 100%;
   padding: 16px 16px;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
-  display: none;
   justify-content: space-between;
 }
 
@@ -112,9 +112,9 @@ h1 {
 }
 
 .content-sheet-header {
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
 }
 
 .sheet-toggle {
@@ -122,8 +122,8 @@ h1 {
 }
 
 .close {
-  display: inline-block;
   font-size: 18px;
+  display: inline-block;
 }
 
 .content-title {
@@ -158,10 +158,10 @@ input {
 
 /* content-sheet 配下の input */
 .content-sheet input {
-  padding: 16px 19px;
-  background-color: #F6F6F6;
   width: 100%;
   height: 52px;
+  padding: 16px 19px;
+  background-color: #F6F6F6;
 }
 
 input:not([type="search"]):focus {
@@ -183,9 +183,9 @@ input:not(:placeholder-shown) {
 }
 
 .search-box {
-  background-color: #FFFFFF;
   width: 100%;
   padding: 14px;
+  background-color: #FFFFFF;
   display: flex;
   align-items: center;
   flex-grow: 1;
@@ -220,15 +220,15 @@ div.search-box>input {
 }
 
 #image-color::-webkit-color-swatch {
+  padding: 0;
   border: none;
   border-radius: 8px;
-  padding: 0;
 }
 
 #image-color::-webkit-color-swatch-wrapper {
+  padding: 0;
   border: none;
   border-radius: 8px;
-  padding: 0;
 }
 
 .search {
@@ -248,11 +248,11 @@ button {
 }
 
 .add-button {
-  position: relative;
+  min-width: 120px;
   height: 50px;
   min-height: 50px;
-  min-width: 120px;
   padding: 15px 24px 15px 42px;
+  position: relative;
   color: #FFFFFF;
   background-color: #6B0FA4;
   border-radius: 4px;
@@ -293,8 +293,8 @@ button {
 
 /* レコード部のcss */
 .list-top-parts {
-  background-color: #FFFFFF;
   height: 8px;
+  background-color: #FFFFFF;
   border-radius: 4px 4px 0 0;
 }
 
@@ -307,7 +307,6 @@ button {
   width: 160px;
   min-width: 160px;
   max-width: 160px;
-  width: 160px;
 }
 
 .user-email {
@@ -315,9 +314,9 @@ button {
 }
 
 .user-id {
+  width: 100px;
   min-width: 100px;
   max-width: 100px;
-  width: 100px;
 }
 
 .list-header,
@@ -506,8 +505,8 @@ input:checked~.checked-icon {
   .content-sheet {
     z-index: 5;
     width: 0px;
-    height: 100%;
     min-width: 0px;
+    height: 100%;
     position: static;
     border-radius: 0;
     border-left: 1px solid rgba(0, 0, 0, 0.12);
@@ -538,8 +537,8 @@ input:checked~.checked-icon {
 
   /* メニューを左部に固定 */
   .navigation {
-    min-width: 80px;
     width: 80px;
+    min-width: 80px;
     height: 100%;
     left: auto;
     bottom: auto;
@@ -591,20 +590,20 @@ input:checked~.checked-icon {
   }
 
   .custom-button {
-    background-color: #FFFFFF;
     height: 100%;
     padding-top: 0;
     padding-bottom: 0;
     margin-left: 16px;
+    display: flex;
+    background-color: #FFFFFF;
     border: 1px solid #6B0FA4 !important;
     border-radius: 4px;
-    display: flex;
     align-items: center;
   }
 
   .reset {
-    height: 50px;
     width: 136px;
+    height: 50px;
     color: #6B0FA4;
     background-color: transparent;
     display: flex;
@@ -613,8 +612,8 @@ input:checked~.checked-icon {
   }
 
   .register-button {
-    height: 50px;
     width: 136px;
+    height: 50px;
     color: #FFFFFF;
     background-color: #6B0FA4;
     border-radius: 4px;
