@@ -123,6 +123,7 @@ h1 {
 
 .close {
   display: inline-block;
+  font-size: 18px;
 }
 
 .content-title {
