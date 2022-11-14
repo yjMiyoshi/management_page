@@ -1,0 +1,723 @@
+/* sp ファースト */
+
+* {
+    /* padding と border を幅と高さに含める */
+    box-sizing: border-box;
+    font-family: 'Noto Sans JP';
+  }
+
+  form {
+    height: 100%;
+  }
+
+  html {
+    height: 100%;
+    max-height: 100%;
+  }
+
+  body {
+    font-family: 'Noto Sans JP';
+    /* 背景色: #C8D5E4 50% を rbga で表記 */
+    background-color: rgba(200, 213, 228, 0.5);
+    margin: 0%;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+  }
+
+  .main {
+    height: 100%;
+    max-height: 100%;
+  }
+
+  /* メニューを最下部に固定 */
+  .navigation {
+    z-index: 10;
+    width: 100%;
+    height: 48px;
+    left: 0;
+    bottom: 0;
+    padding: 8px 16px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  .navigation-button {
+    flex-grow: 1;
+  }
+
+  .contents {
+    width: 100%;
+    height: 100%;
+    padding: 24px 16px 66px 16px;
+    overflow-y: scroll;
+  }
+
+  /* コンテンツアイコンクリック時に表示させるモーダル */
+  .content-sheet {
+    z-index: 20;
+    top: 100%;
+    width: 100%;
+    /* header を考慮 */
+    height: calc(100% - 98px);
+    background-color: #FFFFFF;
+    border-radius: 16px 16px 0 0;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.30);
+    overflow-x: hidden;
+  }
+
+  .content-sheet-form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .content-sheet-top {
+    width: 100%;
+    height: 74px;
+    padding: 24px 16px;
+  }
+
+  .content-sheet-middle {
+    height: 100%;
+    padding: 6px 16px 24px 16px;
+    flex-grow: 1;
+    overflow-y: scroll;
+  }
+
+  .content-sheet-bottom {
+    display: none;
+    width: 100%;
+    padding: 16px 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    justify-content: space-between;
+  }
+
+  /* コンテンツアイコンクリック時、モーダルを表示させる */
+  #sheet-toggle:checked+.content-sheet {
+    top: 98px;
+  }
+
+  .content-sheet-header {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+  }
+
+  .sheet-toggle {
+    display: flex;
+  }
+
+  .close {
+    font-size: 18px;
+    display: inline-block;
+  }
+
+  .content-title {
+    font-size: 14px;
+    /* 文字色: #000000 87% を rbga で表記 */
+    color: rgba(0, 0, 0, 0.87);
+    margin-bottom: 8px;
+  }
+
+  .input-content+.input-content {
+    margin-top: 24px;
+  }
+
+  .content-note {
+    font-size: 12px;
+    /* 文字色: #000000 60% を rbga で表記 */
+    color: rgba(0, 0, 0, 0.60);
+    margin-top: 4px;
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  input {
+    padding: 0;
+    color: rgba(0, 0, 0, 0.87);
+    border-radius: 8px;
+    border: none;
+    outline: none;
+  }
+
+  /* content-sheet 配下の input */
+  .content-sheet input {
+    width: 100%;
+    height: 52px;
+    padding: 16px 19px;
+    background-color: #F6F6F6;
+  }
+
+  input:not([type="search"]):focus {
+    /* 入力中・選択中は border を表示 */
+    border: 2px solid #34B0C0;
+  }
+
+  /* input 要素の入力 color 指定 */
+  input:not(:placeholder-shown) {
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  .header-second-contents {
+    width: 100%;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+  }
+
+  .search-box {
+    width: 100%;
+    padding: 14px;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px 0 0 4px;
+  }
+
+  .search-box:focus-within {
+    border: 2px solid #34B0C0;
+    border-radius: 4px 0 0 4px;
+  }
+
+  div.search-box>input {
+    width: 100%;
+    padding-left: 8px;
+  }
+
+  .header-button {
+    background-color: #FFFFFF;
+    display: flex;
+    border-radius: 0 4px 4px 0;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  #image-color {
+    -webkit-appearance: none;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+  }
+
+  #image-color::-webkit-color-swatch {
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+  }
+
+  #image-color::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+  }
+
+  .search {
+    /* 虫眼鏡アイコンを opacity で調整 子要素無し */
+    opacity: 0.6;
+    font-size: 24px;
+  }
+
+  .navigation-button+.navigation-button {
+    margin-left: 24px;
+  }
+
+  button {
+    /* default の border が不要なため消す */
+    border: none;
+    padding: 0;
+  }
+
+  .add-button {
+    min-width: 120px;
+    height: 50px;
+    min-height: 50px;
+    padding: 15px 24px 15px 42px;
+    position: relative;
+    color: #FFFFFF;
+    background-color: #6B0FA4;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .add {
+    position: absolute;
+    left: 16px;
+    font-size: 18px;
+  }
+
+  .add-word {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  .header-button-icon {
+    font-size: 24px;
+  }
+
+  .custom-button {
+    color: #6B0FA4;
+    /* 初期値(背景色無効) */
+    background-color: transparent;
+    padding: 16px;
+    display: flex;
+  }
+
+  .custom-button+.custom-button {
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  /* レコード部のcss */
+  .list-top-parts {
+    height: 8px;
+    background-color: #FFFFFF;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .list-header,
+  .user-info {
+    display: flex;
+  }
+
+  .user-name {
+    width: 160px;
+    min-width: 160px;
+    max-width: 160px;
+  }
+
+  .user-email {
+    width: 320px;
+  }
+
+  .user-id {
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+  }
+
+  .list-header,
+  .list-body {
+    font-size: 14px;
+  }
+
+  .list-header {
+    background-color: #FFFFFF;
+  }
+
+  .list-body> :nth-child(odd) {
+    background-color: #F6F6F6;
+  }
+
+  .list-body> :nth-child(even) {
+    background-color: #FFFFFF;
+  }
+
+  .user-list {
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  .user-list-container {
+    width: 580px;
+  }
+
+  .user-id,
+  .user-name,
+  .user-email {
+    height: 100%;
+    padding: 14px 8px;
+    color: rgba(0, 0, 0, 0.60);
+    align-items: center;
+    font-weight: 400;
+    /* font-size 14px に対し、line-height 20.27px は 1.45倍 */
+    line-height: 1.45;
+    /* 要素より長い文字列を省略する */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .header-top-contents {
+    width: 100%;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .add-content {
+    margin-left: 16px;
+    font-size: 18px;
+  }
+
+  .register {
+    margin-left: auto;
+    color: #6B0FA4;
+    background-color: transparent;
+    font-size: 18px;
+  }
+
+  [type="search"] {
+    font-size: 14px;
+    border: none;
+  }
+
+  .header-title {
+    font-size: 22px;
+    /* font-size 22px に対し、line-height 31.86px は 1.45倍 */
+    line-height: 1.45;
+    white-space: nowrap;
+  }
+
+  .icon-size {
+    font-size: 32px;
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    min-height: 32px;
+  }
+
+  .icon-size-20 {
+    display: block;
+    font-size: 20px;
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    min-height: 20px;
+  }
+
+  .pc-home {
+    display: none;
+  }
+
+  .sp-home {
+    color: #6B0FA4;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-icon {
+    font-size: 32px;
+  }
+
+  .home-word,
+  .content-word {
+    display: none;
+  }
+
+  .icon-box {
+    height: 100%;
+    color: #6B0FA4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .selected-icon {
+    background-color: rgba(84, 12, 130, 0.10);
+    border-radius: 40px;
+  }
+
+  .button-label {
+    display: none;
+  }
+
+  .check-login {
+    display: flex;
+    align-items: center;
+  }
+
+  .keep-login {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+  }
+
+  #login {
+    display: none;
+  }
+
+  /* check 無し時非表示 */
+  .blank-icon {
+    width: 48px;
+    height: 48px;
+    color: rgba(0, 0, 0, 0.38);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* check あり時表示 兄弟要素を指定 */
+  input:checked~.blank-icon {
+    display: none;
+  }
+
+  /* check 無し時非表示 */
+  .checked-icon {
+    display: none;
+  }
+
+  /* check あり時表示 兄弟要素を指定 */
+  input:checked~.checked-icon {
+    width: 48px;
+    height: 48px;
+    color: rgba(0, 0, 0, 0.38);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  /* PC画面 ----------------------------------------------- */
+  @media (min-width: 521px) {
+
+    .main {
+      display: flex;
+    }
+
+    .contents {
+      padding: 42px 40px;
+    }
+
+    .content-sheet {
+      z-index: 5;
+      width: 0px;
+      min-width: 0px;
+      height: 100%;
+      position: static;
+      border-radius: 0;
+      border-left: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    /* コンテンツアイコンクリック時、モーダルを表示させる */
+    #sheet-toggle:checked+.content-sheet {
+      width: 320px;
+      min-width: 320px;
+    }
+
+    .content-sheet-form {
+      left: -320px;
+      width: 320px;
+      min-width: 320px;
+      max-width: 320px;
+      height: 100%;
+    }
+
+    #sheet-toggle:checked+.content-sheet-form {
+      left: 0;
+    }
+
+    .content-sheet-header>label,
+    .content-sheet-header>button {
+      display: none;
+    }
+
+    /* メニューを左部に固定 */
+    .navigation {
+      width: 80px;
+      min-width: 80px;
+      height: 100%;
+      left: auto;
+      bottom: auto;
+      padding: 56px 0;
+      background-color: #FFFFFF;
+      position: static;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .navigation-button {
+      padding: 5px 12px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 0;
+      /* font-size 10px に対し、line-height 10px は 1倍 */
+      line-height: 1;
+    }
+
+    .navigation-button+.navigation-button {
+      margin-left: 0;
+    }
+
+    .icon-box {
+      padding: 2px 14px;
+    }
+
+    .add-button {
+      display: none;
+    }
+
+    .header-button {
+      border: none;
+      background-color: transparent;
+    }
+
+    .search-box {
+      padding-left: 14px;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .search-box:focus-within {
+      border-radius: 4px;
+    }
+
+    .custom-button+.custom-button {
+      border: none;
+    }
+
+    .custom-button {
+      height: 100%;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-left: 16px;
+      display: flex;
+      background-color: #FFFFFF;
+      border: 1px solid #6B0FA4 !important;
+      border-radius: 4px;
+      align-items: center;
+    }
+
+    .reset {
+      width: 136px;
+      height: 50px;
+      color: #6B0FA4;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .register-button {
+      width: 136px;
+      height: 50px;
+      color: #FFFFFF;
+      background-color: #6B0FA4;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content-sheet-bottom {
+      display: flex;
+    }
+
+    /* レコード部のcss */
+    .user-list-container {
+      width: 100%;
+    }
+
+    .id {
+      width: 180px;
+      /* pc画面時idセルを先頭に */
+      order: -1;
+    }
+
+    .user-name {
+      width: 240px;
+    }
+
+    .header-top-contents {
+      margin-bottom: 40px;
+    }
+
+    .add-content {
+      margin: 0;
+    }
+
+    .header-second-contents {
+      background-color: transparent;
+      height: 52px;
+      border: none;
+    }
+
+    .header-title {
+      font-size: 32px;
+    }
+
+    .icon-size {
+      font-size: 28px;
+      width: 28px;
+      min-width: 28px;
+      height: 28px;
+      min-height: 28px;
+    }
+
+    .menu {
+      color: rgba(0, 0, 0, 0.87);
+      margin-bottom: 40px;
+    }
+
+    .home {
+      margin-top: 4px;
+      order: 1;
+    }
+
+    .pc-home {
+      display: block;
+      color: rgba(0, 0, 0, 0.60);
+    }
+
+    .sp-home {
+      display: none;
+    }
+
+    .home-word,
+    .content-word {
+      display: block;
+      font-size: 10px;
+      line-height: 10px;
+      margin-top: 4px;
+    }
+
+    .home-word {
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.60);
+    }
+
+    .selected-word {
+      font-weight: 500;
+    }
+
+    .content {
+      margin-top: 4px;
+      background-color: transparent;
+      color: #6B0FA4;
+      order: 2;
+    }
+
+    .button-label {
+      padding-left: 8px;
+      font-size: 14px;
+      display: inline;
+      white-space: nowrap;
+    }
+
+    .header-button-icon {
+      font-size: 17px;
+    }
+  }
