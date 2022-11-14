@@ -154,24 +154,23 @@ input {
   border-radius: 8px;
   border: none;
   outline: none;
+  /* 入力中・選択中は border を表示 */
+  /* input 要素の入力 color 指定 */
 }
 
-/* content-sheet 配下の input */
+input:not([type="search"]):focus {
+  border: 2px solid #34B0C0;
+}
+
+input:not(:placeholder-shown) {
+  color: rgba(0, 0, 0, 0.87);
+}
+
 .content-sheet input {
   width: 100%;
   height: 52px;
   padding: 16px 19px;
   background-color: #F6F6F6;
-}
-
-input:not([type="search"]):focus {
-  /* 入力中・選択中は border を表示 */
-  border: 2px solid #34B0C0;
-}
-
-/* input 要素の入力 color 指定 */
-input:not(:placeholder-shown) {
-  color: rgba(0, 0, 0, 0.87);
 }
 
 .header-second-contents {
