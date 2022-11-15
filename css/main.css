@@ -44,7 +44,7 @@ h1 {
   left: 0;
   bottom: 0;
   padding: 8px 16px;
-  background-color: #FFFFFF;
+  background-color: white;
   overflow: hidden;
   position: absolute;
   display: flex;
@@ -70,7 +70,7 @@ h1 {
   width: 100%;
   /* header を考慮 */
   height: calc(100% - 98px);
-  background-color: #FFFFFF;
+  background-color: white;
   border-radius: 16px 16px 0 0;
   position: absolute;
   transition: all 0.5s ease-in-out;
@@ -184,7 +184,7 @@ input:not(:placeholder-shown) {
 .search-box {
   width: 100%;
   padding: 14px;
-  background-color: #FFFFFF;
+  background-color: white;
   display: flex;
   align-items: center;
   flex-grow: 1;
@@ -205,7 +205,7 @@ div.search-box > input {
 }
 
 .header-button {
-  background-color: #FFFFFF;
+  background-color: white;
   display: flex;
   border-radius: 0 4px 4px 0;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -252,7 +252,7 @@ button {
   min-height: 50px;
   padding: 15px 24px 15px 42px;
   position: relative;
-  color: #FFFFFF;
+  color: white;
   background-color: #6B0FA4;
   border-radius: 4px;
   display: flex;
@@ -293,7 +293,7 @@ button {
 /* レコード部のcss */
 .list-top-parts {
   height: 8px;
-  background-color: #FFFFFF;
+  background-color: white;
   border-radius: 4px 4px 0 0;
 }
 
@@ -324,7 +324,7 @@ button {
 }
 
 .list-header {
-  background-color: #FFFFFF;
+  background-color: white;
 }
 
 .list-body > :nth-child(odd) {
@@ -332,7 +332,7 @@ button {
 }
 
 .list-body > :nth-child(even) {
-  background-color: #FFFFFF;
+  background-color: white;
 }
 
 .user-list {
@@ -533,7 +533,7 @@ input:checked ~ .checked-icon {
     left: auto;
     bottom: auto;
     padding: 56px 0;
-    background-color: #FFFFFF;
+    background-color: white;
     position: static;
     flex-direction: column;
     justify-content: flex-start;
@@ -576,7 +576,7 @@ input:checked ~ .checked-icon {
     padding-bottom: 0;
     margin-left: 16px;
     display: flex;
-    background-color: #FFFFFF;
+    background-color: white;
     border: 1px solid #6B0FA4 !important;
     border-radius: 4px;
     align-items: center;
@@ -593,7 +593,7 @@ input:checked ~ .checked-icon {
   .register-button {
     width: 136px;
     height: 50px;
-    color: #FFFFFF;
+    color: white;
     background-color: #6B0FA4;
     border-radius: 4px;
     display: flex;

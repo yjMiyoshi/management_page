@@ -1,3 +1,5 @@
+@import 'function/colors.scss';
+
 /* sp ファースト */
 * {
     /* padding と border を幅と高さに含める */
@@ -17,7 +19,7 @@ html {
 body {
     font-family: 'Noto Sans JP';
     /* 背景色: #C8D5E4 50% を rbga で表記 */
-    background-color: rgba(200, 213, 228, 0.5);
+    background-color: colors(body);
     margin: 0%;
     height: 100%;
     max-height: 100%;
@@ -43,7 +45,7 @@ h1 {
     left: 0;
     bottom: 0;
     padding: 8px 16px;
-    background-color: #FFFFFF;
+    background-color: colors(white);
     overflow: hidden;
     position: absolute;
     display: flex;
@@ -69,11 +71,11 @@ h1 {
     width: 100%;
     /* header を考慮 */
     height: calc(100% - 98px);
-    background-color: #FFFFFF;
+    background-color: colors(white);
     border-radius: 16px 16px 0 0;
     position: absolute;
     transition: all 0.5s ease-in-out;
-    box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.30);
+    box-shadow: 0 2px 6px 2px colors(black_15), 0 1px 2px 0 colors(black_30);
     overflow-x: hidden;
 }
 
@@ -101,7 +103,7 @@ h1 {
     display: none;
     width: 100%;
     padding: 16px 16px;
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-top: 1px solid colors(black_12);
     justify-content: space-between;
 }
 
@@ -128,7 +130,7 @@ h1 {
 .content-title {
     font-size: 14px;
     /* 文字色: #000000 87% を rbga で表記 */
-    color: rgba(0, 0, 0, 0.87);
+    color: colors(black_87);
     margin-bottom: 8px;
 }
 
@@ -139,7 +141,7 @@ h1 {
 .content-note {
     font-size: 12px;
     /* 文字色: #000000 60% を rbga で表記 */
-    color: rgba(0, 0, 0, 0.60);
+    color: colors(black_60);
     margin-top: 4px;
 }
 
@@ -149,19 +151,19 @@ h1 {
 
 input {
     padding: 0;
-    color: rgba(0, 0, 0, 0.87);
+    color: colors(black_87);
     border-radius: 8px;
     border: none;
     outline: none;
 
     /* 入力中・選択中は border を表示 */
     &:not([type="search"]):focus {
-        border: 2px solid #34B0C0;
+        border: 2px solid colors(blue_border);
     }
 
     /* input 要素の入力 color 指定 */
     &:not(:placeholder-shown) {
-        color: rgba(0, 0, 0, 0.87);
+        color: colors(black_87);
     }
 }
 
@@ -171,7 +173,7 @@ input {
         width: 100%;
         height: 52px;
         padding: 16px 19px;
-        background-color: #F6F6F6;
+        background-color: colors(white_1);
     }
 }
 
@@ -187,18 +189,18 @@ input {
 .search-box {
     width: 100%;
     padding: 14px;
-    background-color: #FFFFFF;
+    background-color: colors(white);
     display: flex;
     align-items: center;
     flex-grow: 1;
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
-    border-left: 1px solid rgba(0, 0, 0, 0.12);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    border-top: 1px solid colors(black_12);
+    border-left: 1px solid colors(black_12);
+    border-bottom: 1px solid colors(black_12);
     border-radius: 4px 0 0 4px;
 }
 
 .search-box:focus-within {
-    border: 2px solid #34B0C0;
+    border: 2px solid colors(blue_border);
     border-radius: 4px 0 0 4px;
 }
 
@@ -208,10 +210,10 @@ div.search-box>input {
 }
 
 .header-button {
-    background-color: #FFFFFF;
+    background-color: colors(white);
     display: flex;
     border-radius: 0 4px 4px 0;
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    border: 1px solid colors(black_12);
 }
 
 #image-color {
@@ -255,8 +257,8 @@ button {
     min-height: 50px;
     padding: 15px 24px 15px 42px;
     position: relative;
-    color: #FFFFFF;
-    background-color: #6B0FA4;
+    color: colors(white);
+    background-color: colors(accent);
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -282,7 +284,7 @@ button {
 }
 
 .custom-button {
-    color: #6B0FA4;
+    color: colors(accent);
     /* 初期値(背景色無効) */
     background-color: transparent;
     padding: 16px;
@@ -290,13 +292,13 @@ button {
 }
 
 .custom-button+.custom-button {
-    border-left: 1px solid rgba(0, 0, 0, 0.12);
+    border-left: 1px solid colors(black_12);
 }
 
 /* レコード部のcss */
 .list-top-parts {
     height: 8px;
-    background-color: #FFFFFF;
+    background-color: colors(white);
     border-radius: 4px 4px 0 0;
 }
 
@@ -327,15 +329,15 @@ button {
 }
 
 .list-header {
-    background-color: #FFFFFF;
+    background-color: colors(white);
 }
 
 .list-body> :nth-child(odd) {
-    background-color: #F6F6F6;
+    background-color: colors(white_1);
 }
 
 .list-body> :nth-child(even) {
-    background-color: #FFFFFF;
+    background-color: colors(white);
 }
 
 .user-list {
@@ -352,7 +354,7 @@ button {
 .user-email {
     height: 100%;
     padding: 14px 8px;
-    color: rgba(0, 0, 0, 0.60);
+    color: colors(black_60);
     align-items: center;
     font-weight: 400;
     /* font-size 14px に対し、line-height 20.27px は 1.45倍 */
@@ -378,7 +380,7 @@ button {
 
 .register {
     margin-left: auto;
-    color: #6B0FA4;
+    color: colors(accent);
     background-color: transparent;
     font-size: 18px;
 }
@@ -417,7 +419,7 @@ button {
 }
 
 .sp-home {
-    color: #6B0FA4;
+    color: colors(accent);
     display: flex;
     align-items: center;
 }
@@ -433,14 +435,14 @@ button {
 
 .icon-box {
     height: 100%;
-    color: #6B0FA4;
+    color: colors(accent);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .selected-icon {
-    background-color: rgba(84, 12, 130, 0.10);
+    background-color: colors(selected-icon);
     border-radius: 40px;
 }
 
@@ -454,7 +456,7 @@ button {
 }
 
 .keep-login {
-    color: rgba(0, 0, 0, 0.87);
+    color: colors(black_87);
     font-size: 14px;
 }
 
@@ -466,7 +468,7 @@ button {
 .blank-icon {
     width: 48px;
     height: 48px;
-    color: rgba(0, 0, 0, 0.38);
+    color: colors(black_38);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -486,7 +488,7 @@ input:checked~.blank-icon {
 input:checked~.checked-icon {
     width: 48px;
     height: 48px;
-    color: rgba(0, 0, 0, 0.38);
+    color: colors(black_38);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -511,7 +513,7 @@ input:checked~.checked-icon {
         height: 100%;
         position: static;
         border-radius: 0;
-        border-left: 1px solid rgba(0, 0, 0, 0.12);
+        border-left: 1px solid colors(black_12);
     }
 
     /* コンテンツアイコンクリック時、モーダルを表示させる */
@@ -545,7 +547,7 @@ input:checked~.checked-icon {
         left: auto;
         bottom: auto;
         padding: 56px 0;
-        background-color: #FFFFFF;
+        background-color: colors(white);
         position: static;
         flex-direction: column;
         justify-content: flex-start;
@@ -580,7 +582,7 @@ input:checked~.checked-icon {
     .search-box {
         padding-left: 14px;
         border-radius: 4px;
-        border: 1px solid rgba(0, 0, 0, 0.12);
+        border: 1px solid colors(black_12);
     }
 
     .search-box:focus-within {
@@ -597,8 +599,8 @@ input:checked~.checked-icon {
         padding-bottom: 0;
         margin-left: 16px;
         display: flex;
-        background-color: #FFFFFF;
-        border: 1px solid #6B0FA4 !important;
+        background-color: colors(white);
+        border: 1px solid colors(accent) !important;
         border-radius: 4px;
         align-items: center;
     }
@@ -606,7 +608,7 @@ input:checked~.checked-icon {
     .reset {
         width: 136px;
         height: 50px;
-        color: #6B0FA4;
+        color: colors(accent);
         background-color: transparent;
         display: flex;
         align-items: center;
@@ -616,8 +618,8 @@ input:checked~.checked-icon {
     .register-button {
         width: 136px;
         height: 50px;
-        color: #FFFFFF;
-        background-color: #6B0FA4;
+        color: colors(white);
+        background-color: colors(accent);
         border-radius: 4px;
         display: flex;
         align-items: center;
@@ -670,7 +672,7 @@ input:checked~.checked-icon {
     }
 
     .menu {
-        color: rgba(0, 0, 0, 0.87);
+        color: colors(black_87);
         margin-bottom: 40px;
     }
 
@@ -681,7 +683,7 @@ input:checked~.checked-icon {
 
     .pc-home {
         display: block;
-        color: rgba(0, 0, 0, 0.60);
+        color: colors(black_60);
     }
 
     .sp-home {
@@ -698,7 +700,7 @@ input:checked~.checked-icon {
 
     .home-word {
         font-weight: 400;
-        color: rgba(0, 0, 0, 0.60);
+        color: colors(black_60);
     }
 
     .selected-word {
@@ -708,7 +710,7 @@ input:checked~.checked-icon {
     .content {
         margin-top: 4px;
         background-color: transparent;
-        color: #6B0FA4;
+        color: colors(accent);
         order: 2;
     }
 

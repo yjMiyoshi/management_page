@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+$colors: (
+    white: rgb(255, 255, 255),
+    black_12: rgba(0, 0, 0, .12),
+    black_15: rgba(0, 0, 0, .15),
+    black_30: rgba(0, 0, 0, .30),
+    black_38: rgba(0, 0, 0, .38),
+    black_60: rgba(0, 0, 0, .60),
+    black_87: rgba(0, 0, 0, .87),
+    body: rgba(200, 213, 228, 0.5),
+    selected-icon: rgba(84, 12, 130, 0.10),
+    white_1: #F6F6F6,
+    accent: #6B0FA4,
+    blue_border: #34B0C0,
+);
+
+@function colors($key) {
+    @return map-get($colors, $key);
+}
