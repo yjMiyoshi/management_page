@@ -2,224 +2,227 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- フォント -->
-  <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-  <!-- Material Symbols -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <!-- スタイルシート -->
-  <link rel="stylesheet" href="css/main.css">
-  <title>管理画面</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- フォント -->
+    <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- Material Symbols -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- スタイルシート -->
+    <link rel="stylesheet" href="css/main.css">
+    <title>管理画面</title>
 </head>
 
 <body>
-  <div class="main">
+    <div class="main">
 
-    <nav class="navigation">
-      <div class="navigation-button home cursor-pointer">
-        <div class="icon-box">
-          <div class="pc-home icon-size">
-            <span class="material-icons-outlined icon-size">home</span>
-          </div>
-          <div class="sp-home">
-            <span class="material-symbols-rounded icon-size">house</span>
-          </div>
-        </div>
-        <div class="home-word">ホーム</div>
-      </div>
-      <label class="navigation-button content cursor-pointer" for="sheet-toggle">
-        <div class="icon-box selected-icon">
-          <span class="material-icons-outlined icon-size">recent_actors</span>
-        </div>
-        <div class="content-word selected-word">コンテンツ</div>
-      </label>
-      <div class="navigation-button cursor-pointer">
-        <div class="icon-box menu">
-          <span class="material-icons-round icon-size">menu</span>
-        </div>
-      </div>
-    </nav>
-
-    <input type="checkbox" id="sheet-toggle" hidden>
-
-    <div class="content-sheet">
-      <form action="#" method="post">
-        <div class="content-sheet-form">
-
-          <div class="content-sheet-top">
-            <div class="content-sheet-header">
-              <label class="sheet-toggle" for="sheet-toggle">
-                <span class="material-icons-round cursor-pointer close">close</span>
-              </label>
-              <div class="add-content">コンテンツ追加</div>
-              <button type="submit" class="register cursor-pointer">登録</button>
+        <nav class="navigation">
+            <div class="navigation-button home cursor-pointer">
+                <div class="icon-box">
+                    <div class="pc-home icon-size">
+                        <span class="material-icons-outlined icon-size">home</span>
+                    </div>
+                    <div class="sp-home">
+                        <span class="material-symbols-rounded icon-size">house</span>
+                    </div>
+                </div>
+                <div class="home-word">ホーム</div>
             </div>
-          </div>
-
-          <div class="content-sheet-middle">
-            <div class="content-sheet-middle-forms">
-              <div class="input-content">
-                <div class="content-title">氏名</div>
-                <input type="text" pattern=".{5}">
-                <div class="content-note">10文字以内で入力してください</div>
-              </div>
-              <div class="input-content">
-                <div class="content-title">メールアドレス</div>
-                <input type="email" pattern="^[a-zA-Z0-9]+$">
-                <div class="content-note">半角で入力してください</div>
-              </div>
-              <div class="input-content">
-                <div class="content-title">電話番号</div>
-                <input type="tel" pattern="[\d]+">
-                <div class="content-note">ハイフンなしで入力してください</div>
-              </div>
-              <div class="input-content">
-                <div class="content-title">誕生日</div>
-                <input type="date">
-              </div>
-              <div class="input-content">
-                <div class="content-title">イメージカラー</div>
-                <input id="image-color" type="color" value="#9360FF">
-              </div>
-              <div class="input-content">
-                <div class="content-title">ログイン状態</div>
-                <label class="check-login" for="login">
-                  <input type="checkbox" id="login" name="login">
-                  <div class="blank-icon">
-                    <span class="material-icons-outlined icon-size-20">check_box_outline_blank</span>
-                  </div>
-                  <div class="checked-icon">
-                    <span class="material-icons-outlined icon-size-20">check_box</span>
-                  </div>
-                  <div class="keep-login">ログイン状態を維持する</div>
-                </label>
-              </div>
+            <label class="navigation-button content cursor-pointer" for="sheet-toggle">
+                <div class="icon-box selected-icon">
+                    <span class="material-icons-outlined icon-size">recent_actors</span>
+                </div>
+                <div class="content-word selected-word">コンテンツ</div>
+            </label>
+            <div class="navigation-button cursor-pointer">
+                <div class="icon-box menu">
+                    <span class="material-icons-round icon-size">menu</span>
+                </div>
             </div>
-          </div>
+        </nav>
 
-          <div class="content-sheet-bottom">
-            <button class="reset">
-              <span class="reset-word">リセット</span>
-            </button>
-            <button type="submit" class="register-button">
-              <span class="register-word">登録</span>
-            </button>
-          </div>
+        <input type="checkbox" id="sheet-toggle" hidden>
 
+        <div class="content-sheet">
+            <form action="#" method="post">
+                <div class="content-sheet-form">
+
+                    <div class="content-sheet-top">
+                        <div class="content-sheet-header">
+                            <label class="sheet-toggle" for="sheet-toggle">
+                                <span class="material-icons-round cursor-pointer close">close</span>
+                            </label>
+                            <div class="add-content">コンテンツ追加</div>
+                            <button type="submit" class="register cursor-pointer">登録</button>
+                        </div>
+                    </div>
+
+                    <div class="content-sheet-middle">
+                        <div class="content-sheet-middle-forms">
+                            <div class="input-content">
+                                <div class="content-title">氏名</div>
+                                <input type="text" pattern=".{5}">
+                                <div class="content-note">10文字以内で入力してください</div>
+                            </div>
+                            <div class="input-content">
+                                <div class="content-title">メールアドレス</div>
+                                <input type="email" pattern="^[a-zA-Z0-9]+$">
+                                <div class="content-note">半角で入力してください</div>
+                            </div>
+                            <div class="input-content">
+                                <div class="content-title">電話番号</div>
+                                <input type="tel" pattern="[\d]+">
+                                <div class="content-note">ハイフンなしで入力してください</div>
+                            </div>
+                            <div class="input-content">
+                                <div class="content-title">誕生日</div>
+                                <input type="date">
+                            </div>
+                            <div class="input-content">
+                                <div class="content-title">イメージカラー</div>
+                                <input id="image-color" type="color" value="#9360FF">
+                            </div>
+                            <div class="input-content">
+                                <div class="content-title">ログイン状態</div>
+                                <label class="check-login" for="login">
+                                    <input type="checkbox" id="login" name="login">
+                                    <div class="blank-icon">
+                                        <span
+                                            class="material-icons-outlined icon-size-20">check_box_outline_blank</span>
+                                    </div>
+                                    <div class="checked-icon">
+                                        <span class="material-icons-outlined icon-size-20">check_box</span>
+                                    </div>
+                                    <div class="keep-login">ログイン状態を維持する</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-sheet-bottom">
+                        <button class="reset">
+                            <span class="reset-word">リセット</span>
+                        </button>
+                        <button type="submit" class="register-button">
+                            <span class="register-word">登録</span>
+                        </button>
+                    </div>
+
+                </div>
+            </form>
         </div>
-      </form>
+
+        <div class="contents">
+            <div class="header-top-contents">
+                <h1 class="header-title">コンテンツ一覧</h1>
+                <button class="add-button cursor-pointer">
+                    <span class="material-icons-round add">add</span>
+                    <span class="add-word">追加</span>
+                </button>
+            </div>
+
+            <div class="header-second-contents">
+                <div class="search-box">
+                    <span class="material-icons-round search">search</span>
+                    <input type="search" placeholder="絞り込み検索">
+                </div>
+                <div>
+                    <button class="custom-button cursor-pointer">
+                        <span class="material-icons-round header-button-icon">sync_alt</span>
+                        <span class="button-label">列を並び替え</span>
+                    </button>
+                </div>
+                <div>
+                    <button class="custom-button cursor-pointer">
+                        <span class="material-symbols-rounded header-button-icon">file_download</span>
+                        <span class="button-label">表データを保存</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="user-list">
+                <div class="user-list-container">
+                    <div class="list-top-parts"></div>
+                    <div class="list-header">
+                        <div class="user-name">氏名</div>
+                        <div class="user-email">メールアドレス</div>
+                        <div class="user-id">ID</div>
+                    </div>
+                    <div class="list-body">
+                        <div class="user-info">
+                            <div class="user-name">田中花子</div>
+                            <div class="user-email">sample_sample@sample.com</div>
+                            <div class="user-id">1</div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">竹内順子</div>
+                            <div class="user-email">sample_sample@sample.com</div>
+                            <div class="user-id">2</div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">奥村和希</div>
+                            <div class="user-email">sample_sample@sample.com</div>
+                            <div class="user-id">3</div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">安達翔真</div>
+                            <div class="user-email">sample_sample@sample.com</div>
+                            <div class="user-id">4</div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">吉田凛</div>
+                            <div class="user-email">sample_sample@sample.com</div>
+                            <div class="user-id">5</div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">大谷由奈</div>
+                            <div class="user-email">sample_sample@sample.com</div>
+                            <div class="user-id">6</div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">安達翔真</div>
+                            <div class="user-email">sample_sample@sample.com</div>
+                            <div class="user-id">7</div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">菅原勇人</div>
+                            <div class="user-email">sample_sample@sample.com</div>
+                            <div class="user-id">8</div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">森下弘</div>
+                            <div class="user-email">sample_sample@sample.com</div>
+                            <div class="user-id">9</div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">千葉愛佳</div>
+                            <div class="user-email">sample_sample@sample.com</div>
+                            <div class="user-id">10</div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">大塚太陽</div>
+                            <div class="user-email">sample_sample@sample.com</div>
+                            <div class="user-id">11</div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">佐藤美咲</div>
+                            <div class="user-email">sample_sample@sample.com</div>
+                            <div class="user-id">12</div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">大沢陸翔</div>
+                            <div class="user-email">sample_sample@sample.com</div>
+                            <div class="user-id">13</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="contents">
-      <div class="header-top-contents">
-        <h1 class="header-title">コンテンツ一覧</h1>
-        <button class="add-button cursor-pointer">
-          <span class="material-icons-round add">add</span>
-          <span class="add-word">追加</span>
-        </button>
-      </div>
-
-      <div class="header-second-contents">
-        <div class="search-box">
-          <span class="material-icons-round search">search</span>
-          <input type="search" placeholder="絞り込み検索">
-        </div>
-        <div class="header-button">
-          <button class="custom-button cursor-pointer">
-            <span class="material-icons-round header-button-icon">sync_alt</span>
-            <span class="button-label">列を並び替え</span>
-          </button>
-          <button class="custom-button cursor-pointer">
-            <span class="material-symbols-rounded header-button-icon">file_download</span>
-            <span class="button-label">表データを保存</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="user-list">
-        <div class="user-list-container">
-          <div class="list-top-parts"></div>
-          <div class="list-header">
-            <div class="user-name">氏名</div>
-            <div class="user-email">メールアドレス</div>
-            <div class="user-id">ID</div>
-          </div>
-          <div class="list-body">
-            <div class="user-info">
-              <div class="user-name">田中花子</div>
-              <div class="user-email">sample_sample@sample.com</div>
-              <div class="user-id">1</div>
-            </div>
-            <div class="user-info">
-              <div class="user-name">竹内順子</div>
-              <div class="user-email">sample_sample@sample.com</div>
-              <div class="user-id">2</div>
-            </div>
-            <div class="user-info">
-              <div class="user-name">奥村和希</div>
-              <div class="user-email">sample_sample@sample.com</div>
-              <div class="user-id">3</div>
-            </div>
-            <div class="user-info">
-              <div class="user-name">安達翔真</div>
-              <div class="user-email">sample_sample@sample.com</div>
-              <div class="user-id">4</div>
-            </div>
-            <div class="user-info">
-              <div class="user-name">吉田凛</div>
-              <div class="user-email">sample_sample@sample.com</div>
-              <div class="user-id">5</div>
-            </div>
-            <div class="user-info">
-              <div class="user-name">大谷由奈</div>
-              <div class="user-email">sample_sample@sample.com</div>
-              <div class="user-id">6</div>
-            </div>
-            <div class="user-info">
-              <div class="user-name">安達翔真</div>
-              <div class="user-email">sample_sample@sample.com</div>
-              <div class="user-id">7</div>
-            </div>
-            <div class="user-info">
-              <div class="user-name">菅原勇人</div>
-              <div class="user-email">sample_sample@sample.com</div>
-              <div class="user-id">8</div>
-            </div>
-            <div class="user-info">
-              <div class="user-name">森下弘</div>
-              <div class="user-email">sample_sample@sample.com</div>
-              <div class="user-id">9</div>
-            </div>
-            <div class="user-info">
-              <div class="user-name">千葉愛佳</div>
-              <div class="user-email">sample_sample@sample.com</div>
-              <div class="user-id">10</div>
-            </div>
-            <div class="user-info">
-              <div class="user-name">大塚太陽</div>
-              <div class="user-email">sample_sample@sample.com</div>
-              <div class="user-id">11</div>
-            </div>
-            <div class="user-info">
-              <div class="user-name">佐藤美咲</div>
-              <div class="user-email">sample_sample@sample.com</div>
-              <div class="user-id">12</div>
-            </div>
-            <div class="user-info">
-              <div class="user-name">大沢陸翔</div>
-              <div class="user-email">sample_sample@sample.com</div>
-              <div class="user-id">13</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </body>
 
 </html>

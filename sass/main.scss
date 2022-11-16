@@ -232,25 +232,23 @@ div.search-box>input {
 }
 
 .add-button {
+    position: relative;
     min-width: 12rem;
     height: 5rem;
     min-height: 5rem;
-    padding: 0 2.4rem 0 1.6rem;
-    position: relative;
+    padding: 0 2.4rem 0 4.2rem;
+    line-height: 5rem;
     color: colors(white);
     background-color: colors(accent);
     border-radius: .4rem;
     display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    vertical-align: middle;
 }
 
 .add {
     position: absolute;
     left: 1.6rem;
     font-size: 1.8rem;
+    line-height: inherit;
 }
 
 .add-word {
@@ -258,6 +256,7 @@ div.search-box>input {
     height: 100%;
     font-size: 1.4rem;
     line-height: 2rem;
+    line-height: inherit;
 }
 
 .header-button-icon {
