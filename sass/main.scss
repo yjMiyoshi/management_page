@@ -50,6 +50,13 @@ body {
     overflow-y: scroll;
 }
 
+// スクロール非表示
+.contents::-webkit-scrollbar,
+.content-sheet-middle::-webkit-scrollbar,
+.user-list::-webkit-scrollbar {
+    display: none;
+}
+
 /* コンテンツアイコンクリック時に表示させるモーダル */
 .content-sheet {
     z-index: 20;
@@ -248,7 +255,8 @@ div.search-box>input {
     border-radius: .4rem;
 }
 
-.add, .add-word {
+.add,
+.add-word {
     color: colors(white);
     background-color: colors(accent);
     line-height: inherit;
@@ -305,6 +313,7 @@ div.search-box>input {
 /* レコード部のcss */
 .list-top-parts {
     height: .8rem;
+    min-width: 58rem;
     background-color: colors(white);
     border-radius: .4rem .4rem 0 0;
 }
@@ -322,6 +331,7 @@ div.search-box>input {
 
 .user-email {
     width: 32rem;
+    min-width: 32rem;
 }
 
 .user-id {
@@ -333,6 +343,7 @@ div.search-box>input {
 .list-header,
 .list-body {
     font-size: 1.4rem;
+    min-width: 58rem;
 }
 
 .list-header {
