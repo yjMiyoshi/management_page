@@ -242,6 +242,22 @@ div.search-box>input {
     display: flex;
 }
 
+.hoge {
+    position: relative;
+}
+
+.fuga {
+    z-index: 100;
+    position: absolute;
+    min-width: 12rem;
+    height: 5rem;
+    min-height: 5rem;
+    padding: 0 2.4rem 0 4.2rem;
+    line-height: 5rem;
+    cursor: pointer;
+}
+
+
 .add {
     position: absolute;
     left: 1.6rem;
