@@ -547,9 +547,7 @@ input:not(:placeholder-shown) {
   display: flex;
   align-items: center;
   flex-grow: 1;
-  border-top: 0.1rem solid rgba(0, 0, 0, 0.12);
-  border-left: 0.1rem solid rgba(0, 0, 0, 0.12);
-  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.12);
+  border: 0.1rem solid rgba(0, 0, 0, 0.12);
   border-radius: .4rem 0 0 .4rem;
 }
 
@@ -629,18 +627,26 @@ div.search-box > input {
 
 .header-button-icon {
   font-size: 2.4rem;
+  background-color: transparent;
 }
 
-.custom-button {
+.custom-button-left {
   color: #6B0FA4;
-  /* 初期値(背景色無効) */
-  background-color: transparent;
   padding: 1.6rem;
   display: flex;
+  background-color: white;
+  border: 0.1rem solid rgba(0, 0, 0, 0.12);
+  margin-left: -1px;
 }
 
-.custom-button + .custom-button {
-  border-left: 0.1rem solid rgba(0, 0, 0, 0.12);
+.custom-button-right {
+  color: #6B0FA4;
+  padding: 1.6rem;
+  display: flex;
+  background-color: white;
+  border: 0.1rem solid rgba(0, 0, 0, 0.12);
+  border-radius: 0 .4rem .4rem 0;
+  margin-left: -1px;
 }
 
 /* レコード部のcss */
@@ -913,7 +919,7 @@ input:checked ~ .checked-icon {
   .search-box {
     padding-left: 1.4rem;
     border-radius: .4rem;
-    border: 0.1rem solid rgba(0, 0, 0, 0.12);
+    border: .1rem solid red;
   }
   .search-box:focus-within {
     border-radius: .4rem;
