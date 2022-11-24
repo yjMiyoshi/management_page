@@ -886,8 +886,8 @@ input:checked ~ .checked-icon {
   }
   .content-sheet {
     z-index: 5;
-    width: rem;
-    min-width: rem;
+    width: 0rem;
+    min-width: 0rem;
     height: 100%;
     position: static;
     border-radius: 0;
@@ -949,7 +949,7 @@ input:checked ~ .checked-icon {
   .search-box {
     padding-left: 1.4rem;
     border-radius: .4rem;
-    border: .1rem solid red;
+    border: 0.1rem solid rgba(0, 0, 0, 0.12);
   }
   .search-box:focus-within {
     border-radius: .4rem;
